@@ -1,0 +1,70 @@
+@mc:#1DABA7;
+
+.top{
+    background-color: @mc;
+    height: 2rem;
+    position: relative;
+    padding:0.5rem;
+    .back{
+        a{
+            color: #fff;
+            font-weight: bolder;
+            font-size: 1rem;
+        }
+    }
+}
+.mid{
+    position: relative;
+    .schedule{
+        padding:0 0.5rem 0.5rem;
+        background-color: @mc;
+        height: 6rem;
+        bottom: 1rem;
+        color: #fff;
+        .scheduleName{
+            position: absolute;
+            bottom: 3.3rem;
+            span{
+                font-size: 1rem;
+            }
+        }
+        .scheduleTime{
+            position: absolute;
+            bottom: 2.3rem;
+        }
+    }
+    .remind{
+        padding-top:0.5rem; 
+        padding-bottom:0.5rem;
+        border-bottom: 1px solid #ccc;
+        height: 2.0rem;
+        a{
+            position: absolute;
+            left: 0.5rem;
+            font-size:0.7rem; 
+        }
+        span{
+            position: absolute;
+            right: 0.5rem;
+            font-size:0.7rem;
+        }
+    }
+}
+.bottom{
+    position: fixed;
+    border-top:1px solid #ccc;
+    text-align: center;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    table{   
+        display: inline-block; 
+        img{
+            width: 1.8rem;
+        }
+        a{
+            font-size: 0.5rem;
+        }
+    }
+    
+}
