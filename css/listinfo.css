@@ -1,0 +1,65 @@
+.top {
+  background-color: #1DABA7;
+  height: 2rem;
+  position: relative;
+  padding: 0.5rem;
+}
+.top .back a {
+  color: #fff;
+  font-weight: bolder;
+  font-size: 1rem;
+}
+.mid {
+  position: relative;
+}
+.mid .schedule {
+  padding: 0 0.5rem 0.5rem;
+  background-color: #1DABA7;
+  height: 6rem;
+  bottom: 1rem;
+  color: #fff;
+}
+.mid .schedule .scheduleName {
+  position: absolute;
+  bottom: 3.3rem;
+}
+.mid .schedule .scheduleName span {
+  font-size: 1rem;
+}
+.mid .schedule .scheduleTime {
+  position: absolute;
+  bottom: 2.3rem;
+}
+.mid .remind {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #ccc;
+  height: 2.0rem;
+}
+.mid .remind a {
+  position: absolute;
+  left: 0.5rem;
+  font-size: 0.7rem;
+}
+.mid .remind span {
+  position: absolute;
+  right: 0.5rem;
+  font-size: 0.7rem;
+}
+.bottom {
+  position: fixed;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.bottom table {
+  display: inline-block;
+}
+.bottom table img {
+  width: 1.8rem;
+}
+.bottom table a {
+  font-size: 0.5rem;
+}
