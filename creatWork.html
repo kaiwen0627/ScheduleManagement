@@ -1,89 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="wclassth=device-wclassth, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="browsermode" content="application"/>
+    <meta name="browsermode" content="application" />
     <title>日程管理</title>
     <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./css/creatWork.css">  
+    <link rel="stylesheet" href="./css/creatWork.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_564276_5qc4upvfvwws714i.css">
 </head>
-<body>
-    <div class="top">
-        <div class="back">
-            <a href="#">返回</a>
-        </div>
-        <div class="tit">
-            <a>新建日程</a>
-        </div>
-    </div>  
-    <div id="tab">
-        <!-- 选项的头部 -->
-        <div id="tab-header">
-            <ul>
-                <li class="active">日程</li>
-                <li>生日</li>
-                <li>纪念日</li>
-                <li>倒数日</li>
-            </ul>
-        </div>
-        <!-- 主要内容 -->
-        <div id="tab-content">
-            <div class="dom" id="schedule" style="display: block;">
-                <form action="" id="sche" class="sche" method="get">
-                    <div class="inputtext">
-                        <input type="text" id="Tit" class="Tit" placeholder="请输入事件标题"/>
-                    </div>　　                    
-                    <div class="TimeCh">
-                        <div class="TimeType">全天事件</div>
-                        <div class="testswitch">  
-                            <input class="testswitch-checkbox" id="onoffswitch" type="checkbox">  
-                            <label class="testswitch-label" for="onoffswitch">  
-                                <span class="testswitch-inner" data-on="ON" data-off="OFF"></span>  
-                                <span class="testswitch-switch"></span>  
-                            </label>  
-                        </div>
-                    </div>
-                    <div class="startTime">
-                        <div>开始时间</div>
-                        <div></div>
-                    </div>
-                    <div class="endTime">
-                        <div>结束时间</div>
-                        <div></div>
-                    </div>
-                    <div class="tiXing">
-                        <div>提醒</div>
-                        <div></div>
-                    </div>
-                    <div class="chongfu">
-                        <div>重复</div>
-                        <div></div>
-                    </div>
-                    <div class="inputtext">
-                        <input type="text" id="address" class="Add" placeholder="请输入地点"/>
-                    </div>
-                    <div class="inputtext">
-                        <input type="text" id="beizhu" class="Bei" placeholder="请输入备注"/>
-                    </div>
-                </form>
-            </div>
 
-            <div class="dom">
-                <p>12345</p>
-            </div>
-            <div class="dom">
-                <p>123456</p>
-            </div>
-            <div class="dom">
-                <p>1234567</p>
-            </div>
+<body>
+    <article class="topMenu">
+        <span class="goBack">
+            <span>返回</span>
+        </span>
+        <p class="navInfo">今日日程</p>
+    </article>
+    <div class="tab">
+        <ul>
+            <li class="active iconfont icon-richenganpai">日程</li>
+            <li class=" iconfont icon-shengri">生日</li>
+            <li class="iconfont icon-xin">纪念日</li>
+            <li class=" iconfont icon-wujiaoxing">倒数日</li>
+        </ul>
+    </div>
+    <div class="pannal  pannal-01">
+        <ul>
+            <li class="row">
+                <input type="text" placeholder="请输入事件标题" class="event">
+            </li>
+            <li class="row">
+                <span>全天事件</span>
+                <p class="isAllDay"></p>
+            </li>
+            <li class="row view1">
+                <span>开始时间</span>
+                <span class="time startTime">
+                    <input type="datetime-local">
+                </span>
+            </li>
+            <li class="row view1">
+                <span>结束时间</span>
+                <span class="time overTime">
+                    <input type="datetime-local">
+                </span>
+            </li>
+            <li class="row view2">
+                <span>开始时间</span>
+                <span class=" time startTime">
+                    <input type="date">
+                </span>
+            </li>
+            <li class="row view2">
+                <span>结束时间</span>
+                <span class="time overTime">
+                    <input type="date">
+                </span>
+            </li>
+            <li class="row">
+                <span>提醒</span>
+                <p class="isAlert"></p>
+            </li>
+            <li class="row row-con isAlert-con">
+                <p>
+                    <label>
+                        <input type="checkbox" name="tixing">5分钟前</label>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" name="tixing">10分钟前</label>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" name="tixing">15分钟前</label>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" name="tixing">30分钟前</label>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" name="tixing">1小时前</label>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" name="tixing">1天前</label>
+                </p>
+                <p>
+                    <label>
+                        <input type="checkbox" name="tixing">1周前</label>
+                </p>
+            </li>
+            <li class="row">
+                <span>重复</span>
+                <p class="isRepeat"></p>
+            </li>
+            <li class="row row-con isRepeat-con">
+                <p>
+                    <label>
+                        <input type="radio" name="tixing">一次性活动</label>
+                </p>
+                <p>
+                    <label>
+                        <input type="radio" name="tixing">每日</label>
+                </p>
+                <p>
+                    <label>
+                        <input type="radio" name="tixing">每周</label>
+                </p>
+                <p>
+                    <label>
+                        <input type="radio" name="tixing">每月</label>
+                </p>
+                <p>
+                    <label>
+                        <input type="radio" name="tixing">每年</label>
+                </p>
+
+            </li>
+        </ul>
+        <div class="submitEvent">
+            <p>确定</p>
         </div>
     </div>
 
 
-    
+
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="./js/creatWork.js"></script>
 </body>
+
 </html>

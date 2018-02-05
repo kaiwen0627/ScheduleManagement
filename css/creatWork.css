@@ -17,45 +17,160 @@
   text-align: center;
   top: 0.5rem;
 }
-#tab {
-  width: 100%;
-  height: 3rem;
-  border: 1px solid #eee;
-}
-#tab #tab-header {
-  padding: 0 1px;
-  background-color: #f7f7f7;
-  border-bottom: 1px solid #eee;
-  height: 3rem;
-  line-height: 3rem;
+.topMenu {
+  height: 2rem;
+  background-color: #F7F7F7;
+  position: relative;
   text-align: center;
+  color: #333;
 }
-#tab #tab-header ul {
-  width: 100%;
-  height: 3rem;
+.topMenu .goBack {
   position: absolute;
-  left: -1px;
+  top: 0;
+  left: 10px;
+  height: 100%;
+  width: 60px;
+  line-height: 2rem;
 }
-#tab #tab-header ul li {
+.topMenu .goBack span {
   display: inline-block;
-  width: 3rem;
-  height: 3rem;
-  line-height: 3rem;
-  padding: 0 1px;
+  margin-top: 0.4rem;
+  width: 90%;
+  height: 1.2rem;
+  border: 1px solid #ddd;
+  background-color: #F7F7F7;
+  font-size: 0.7rem;
+  line-height: 1.2rem;
+  border-radius: 5px;
 }
-#tab-content .dom {
+.topMenu .navInfo {
+  width: 100px;
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  height: 2rem;
+  line-height: 2rem;
+}
+.tab {
+  border-bottom: 10px solid #eee;
+  margin-bottom: 10px;
+}
+.tab ul {
+  font-size: 0;
+}
+.tab ul li {
+  display: inline-block;
+  font-size: 0.7rem;
+  width: 25%;
+  text-align: center;
+  height: 3rem;
+  color: #333;
+}
+.tab ul li:before {
+  display: block;
+  height: 1.4rem;
+  line-height: 1.4rem;
+}
+.pannal .row {
+  height: 2rem;
+  line-height: 2rem;
+  padding: 0 20px;
+  margin: 0 20px;
+  border-bottom: 1px solid #ccc;
+}
+.pannal-01 {
+  font-size: 0.7rem;
+}
+.pannal-01 .event {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  border: none;
+}
+.pannal-01 .row {
+  font-size: 0;
+  position: relative;
+}
+.pannal-01 .row span {
+  font-size: 14px;
+  display: inline-block;
+  height: 100%;
+}
+.pannal-01 .row span input {
+  height: 90%;
+  border: none;
+  background-color: #fff;
+}
+.pannal-01 .row .time {
+  padding-left: 30px;
+}
+.pannal-01 .row .isAllDay,
+.pannal-01 .row .isAlert,
+.pannal-01 .row .isRepeat {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -10px;
+  height: 20px;
+  width: 50px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+.pannal-01 .row .isAllDay:after,
+.pannal-01 .row .isAlert:after,
+.pannal-01 .row .isRepeat:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 1px;
+  text-align: center;
+  line-height: 18px;
+  color: #000;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #aaa;
+}
+.pannal-01 .row .isAllDay.on:after,
+.pannal-01 .row .isAlert.on:after,
+.pannal-01 .row .isRepeat.on:after {
+  content: '';
+  right: 1px;
+  left: auto;
+  background-color: #18b956;
+}
+.pannal-01 .view2 {
   display: none;
 }
-#tab-content .dom .sche {
-  position: relative;
-  padding: 0 0.5rem;
+.pannal-01 .row-con {
+  height: 180px;
+  display: none;
+  line-height: 30px;
+  padding: 20px 0 0 20px;
 }
-#tab-content .dom .sche #Tit,
-#tab-content .dom .sche #address,
-#tab-content .dom .sche #beizhu {
-  padding: 0.3rem 0;
-  width: 100%;
+.pannal-01 .row-con p {
+  font-size: 14px;
+  width: 50%;
+  height: 30px;
+  line-height: 30px;
+  display: inline-block;
 }
-#tab-content .dom .sche #address {
-  margin-bottom: 0.5rem;
+.pannal-01 .row-con p input {
+  margin-right: 10px;
+}
+.submitEvent {
+  margin-top: 20px;
+  padding: 10px;
+}
+.submitEvent p {
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  width: 200px;
+  margin: 0 auto;
+  background-color: #18b956;
+  color: #fff;
+  border-radius: 20px;
 }

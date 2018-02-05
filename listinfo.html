@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="browsermode" content="application"/>
+    <meta name="browsermode" content="application" />
     <title>日程管理</title>
     <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./css/listinfo.css">   
+    <link rel="stylesheet" href="./css/listinfo.css">
 </head>
+
 <body>
     <div class="top">
         <div class="back">
             <span>
-                <a href="#">
-                    <
-                </a>
-                <!-- 返回键"<"对应的链接为上级页面 -->
+               
+                    < 
             </span>
-        </div>       
+        </div>
     </div>
     <div class="mid">
         <div class="schedule">
@@ -41,37 +41,23 @@
             </div>
             <div>
                 <span>活动开始前</span>
-            </div>                
+            </div>
         </div>
     </div>
     <div class="bottom">
-        <table>
-            <tbody>
-                <tr>
-                    <td>
-                        <a href="#">
-                            <img src="./image/编辑.png"/>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="#">
-                            <img src="./image/删除.png"/>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a>编辑</a>
-                    </td>
-                    <td>
-                        <a>删除</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <p class="editer">
+            <img src="./image/edit.png" alt="">
+            <a class="edit" href="#">编辑</a>
+        </p>
+        <p class="delecter">
+            <img src="./image/delect.png" alt="">
+            <span class="delect">删除</span>
+        </p>
     </div>
 
-    
+
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="./js/listinfo.js"></script>
 </body>
+
 </html>
