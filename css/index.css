@@ -25,9 +25,13 @@ body {
 .today {
   flex: 1;
   text-align: center;
+  font-size: 0.8rem;
 }
 .ul-box {
   overflow: hidden;
+}
+.schedule-bd {
+  box-shadow: 5px 0 5px rgba(0, 0, 0, 0.5);
 }
 .ul-box > li {
   float: left;
@@ -69,9 +73,6 @@ body {
 .today-flag {
   background: #00C2B1;
   color: #fff;
-}
-.boxshaw {
-  box-shadow: 2px 2px 15px 2px #e3e3e3;
 }
 .selected-style {
   background: #00BDFF;
@@ -126,4 +127,33 @@ body {
 .schedule-bd {
   margin-bottom: 10px;
   padding-bottom: 10px;
+}
+.views-btn {
+  height: 1.6rem;
+  line-height: 1.6rem;
+  background-color: #1DABA7;
+  padding-top: 0.4rem;
+}
+.views-btn p {
+  width: 60%;
+  margin: 0 auto;
+  font-size: 0;
+  overflow: hidden;
+  text-align: center;
+  border: 1px solid #FFF;
+  border-radius: 0.7rem;
+  height: 1.2rem;
+  line-height: 1.2rem;
+}
+.views-btn p span {
+  display: inline-block;
+  font-size: 0.6rem;
+  width: 50%;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  text-align: center;
+  color: #fff;
+}
+.views-btn p span + span {
+  border-left: 1px solid #fff;
 }
