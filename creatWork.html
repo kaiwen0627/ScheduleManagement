@@ -7,7 +7,7 @@
     <meta name="browsermode" content="application"/>
     <title>日程管理</title>
     <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./css/creatWork.css">   
+    <link rel="stylesheet" href="./css/creatWork.css">  
 </head>
 <body>
     <div class="top">
@@ -22,7 +22,7 @@
         <!-- 选项的头部 -->
         <div id="tab-header">
             <ul>
-                <li>日程</li>
+                <li class="active">日程</li>
                 <li>生日</li>
                 <li>纪念日</li>
                 <li>倒数日</li>
@@ -30,38 +30,57 @@
         </div>
         <!-- 主要内容 -->
         <div id="tab-content">
-            <div class="dom" style="display: block;">
-                <ul>  
-                    <li><a href="#">数据七夕:金牛爱送玫瑰</a></li>  
-                    <li><a href="#">阿里打造"互联网监管"</a></li>  
-                    <li><a href="#">10万家店60万新品</a></li>  
-                    <li><a href="#">全球最大网上时装周</a></li>  
-                </ul> 
+            <div class="dom" id="schedule" style="display: block;">
+                <form action="" id="sche" class="sche" method="get">
+                    <div class="inputtext">
+                        <input type="text" id="Tit" class="Tit" placeholder="请输入事件标题"/>
+                    </div>　　                    
+                    <div class="TimeCh">
+                        <div class="TimeType">全天事件</div>
+                        <div class="testswitch">  
+                            <input class="testswitch-checkbox" id="onoffswitch" type="checkbox">  
+                            <label class="testswitch-label" for="onoffswitch">  
+                                <span class="testswitch-inner" data-on="ON" data-off="OFF"></span>  
+                                <span class="testswitch-switch"></span>  
+                            </label>  
+                        </div>
+                    </div>
+                    <div class="startTime">
+                        <div>开始时间</div>
+                        <div></div>
+                    </div>
+                    <div class="endTime">
+                        <div>结束时间</div>
+                        <div></div>
+                    </div>
+                    <div class="tiXing">
+                        <div>提醒</div>
+                        <div></div>
+                    </div>
+                    <div class="chongfu">
+                        <div>重复</div>
+                        <div></div>
+                    </div>
+                    <div class="inputtext">
+                        <input type="text" id="address" class="Add" placeholder="请输入地点"/>
+                    </div>
+                    <div class="inputtext">
+                        <input type="text" id="beizhu" class="Bei" placeholder="请输入备注"/>
+                    </div>
+                </form>
             </div>
-            <div class="dom">
-                <ul>
-                    <li>
 
-                    </li>
-                </ul>
+            <div class="dom">
+                <p>12345</p>
             </div>
             <div class="dom">
-                <ul>
-                    <li>
-                        
-                    </li>
-                </ul>
+                <p>123456</p>
             </div>
             <div class="dom">
-                <ul>
-                    <li>
-                        
-                    </li>
-                </ul>
+                <p>1234567</p>
             </div>
         </div>
     </div>
-
 
 
     
