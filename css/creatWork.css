@@ -60,21 +60,23 @@
 }
 .tab ul li {
   display: inline-block;
-  font-size: 0.7rem;
+  font-size: 18px;
   width: 25%;
   text-align: center;
   height: 3rem;
-  color: #333;
+  color: #202020;
+  font-weight: 500;
 }
 .tab ul li:before {
   display: block;
   height: 1.4rem;
+  font-weight: normal;
   line-height: 1.4rem;
 }
 .pannal .row {
   height: 2rem;
   line-height: 2rem;
-  padding: 0 20px;
+  padding: 0 10px;
   margin: 0 20px;
   border-bottom: 1px solid #ccc;
 }
@@ -95,6 +97,7 @@
   font-size: 14px;
   display: inline-block;
   height: 100%;
+  color: #6E6E6E;
 }
 .pannal-01 .row span input {
   height: 90%;
@@ -113,9 +116,10 @@
   top: 50%;
   margin-top: -10px;
   height: 20px;
-  width: 50px;
+  width: 40px;
   border: 1px solid #ccc;
   border-radius: 10px;
+  background-color: #EEEEEE;
 }
 .pannal-01 .row .isAllDay:after,
 .pannal-01 .row .isAlert:after,
@@ -131,15 +135,21 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background-color: #aaa;
+  background-color: #fff;
+}
+.pannal-01 .row .isAllDay.on,
+.pannal-01 .row .isAlert.on,
+.pannal-01 .row .isRepeat.on {
+  right: 1px;
+  left: auto;
+  border-color: transparent;
+  background-color: #44DB54;
 }
 .pannal-01 .row .isAllDay.on:after,
 .pannal-01 .row .isAlert.on:after,
 .pannal-01 .row .isRepeat.on:after {
-  content: '';
-  right: 1px;
   left: auto;
-  background-color: #18b956;
+  right: 1px;
 }
 .pannal-01 .view2 {
   display: none;
