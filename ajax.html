@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        fetch('http://127.0.0.1:3000/api/getUserByAttr', {
+                method: 'POST',
+                headers: new Headers({
+                    'Content-Type': 'application/x-www-form-urlencoded' // 指定提交方式为表单提交
+                }),
+                body: new URLSearchParams([
+                    ["foo", 1],
+                    ["bar", 2]
+                ]).toString()
+            })
+            .then((res) => {
+                return res.text()
+            })
+            .then((res) => {
+                console.log(res)
+            })
+    </script>
+</body>
+
+</html>
