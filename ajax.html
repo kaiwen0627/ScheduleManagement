@@ -10,22 +10,48 @@
 
 <body>
     <script>
-        fetch('http://127.0.0.1:3000/api/getUserByAttr', {
-                method: 'POST',
-                headers: new Headers({
-                    'Content-Type': 'application/x-www-form-urlencoded' // 指定提交方式为表单提交
-                }),
-                body: new URLSearchParams([
-                    ["foo", 1],
-                    ["bar", 2]
-                ]).toString()
-            })
-            .then((res) => {
-                return res.text()
-            })
-            .then((res) => {
-                console.log(res)
-            })
+//获取账户信息(yes)
+        // fetch('http://127.0.0.1:4000/api/getUserByAttr', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Accept': 'application/json',
+        //             'Content-Type': 'application/json'
+        //         },
+        //         body: JSON.stringify({
+        //             attr: "_id",
+        //             val:'5a7a611e0e91a1a5394597fb'
+        //         })
+        //     })
+        //     .then((res) => {
+        //         return res.text()
+        //     })
+        //     .then((res) => {
+        //         console.log(res)
+        //     })
+//添加日程(yes)
+            // fetch('http://127.0.0.1:4000/api/addSchedule', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Accept': 'application/json',
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify({
+            //         "title": '233333',
+            //         "desc": '0425',
+            //         "address": '5454',
+            //         "alertTime": Date.now(),
+            //         "isAllDay": 1,
+            //         "startTime": Date.now(),
+            //         "endTime": Date.now()
+            //     })
+            // })
+            // .then((res) => {
+            //     return res.text()
+            // })
+            // .then((res) => {
+            //     console.log(res)
+            // })
+    
     </script>
 </body>
 
