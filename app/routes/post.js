@@ -34,10 +34,25 @@ router.post('/getUserByAttr', function (req, res) {
 router.post('/addSchedule', function (req, res) {
 	console.log(req.body);
 
-	Schedule.addSchedule(req.body,(user) => {
-		res.send(200, user);
+	Schedule.addSchedule(req.body,(status) => {
+		res.send(200, status);
 	})
 });
+//查询日程
+router.post('/findScheduleByAttr', function (req, res) {
+	console.log(req.body);
 
+	Schedule.findScheduleByAttr(req.body.attr,req.body.val,(status) => {
+		res.send(200, status);
+	})
+});
+//删除日程
+router.post('/delSchedule', function (req, res) {
+	console.log(req.body);
+
+	Schedule.delSchedule(req.body.attr,req.body.val,(status) => {
+		res.send(200, status);
+	})
+});
 
 module.exports = router;

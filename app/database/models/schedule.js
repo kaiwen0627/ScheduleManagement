@@ -92,15 +92,7 @@ schedule.statics = {
 				console.log(err);
 				callback('faile');
 			} else {
-				callback(user);
-				// callback({
-				// 	'name': user.name,
-				// 	'email': user.email,
-				// 	'phone': user.phone,
-				// 	'desc': user.desc,
-				// 	'dName': user.dName,
-				// 	'level': user.level,
-				// });
+				callback(user);				
 			}
 		});
 	},
@@ -128,9 +120,9 @@ schedule.statics = {
 			}
 		})
 	},
-	delSchedule: function (name, callback) {
+	delSchedule: function (attr,val, callback) {
 		this.remove({
-			'name': name
+			[attr]: val
 		}, function (err) {
 			if (err) {
 				callback({

@@ -36,7 +36,7 @@
             //         'Content-Type': 'application/json'
             //     },
             //     body: JSON.stringify({
-            //         "title": '233333',
+            //         "title": 'mmp',
             //         "desc": '0425',
             //         "address": '5454',
             //         "alertTime": Date.now(),
@@ -52,6 +52,44 @@
             //     console.log(res)
             // })
     
+      //查询日程  (yes)
+    //    fetch('http://127.0.0.1:4000/api/findScheduleByAttr', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Accept': 'application/json',
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify({
+    //                 attr:"title",
+    //                 val: 'mmp'                   
+    //             })
+    //         })
+    //         .then((res) => {
+    //             return res.text()
+    //         })
+    //         .then((res) => {
+    //             console.log(res)
+    //         })  
+
+          //查询日程  ()
+       fetch('http://127.0.0.1:4000/api/delSchedule', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    attr:"title",
+                    val: '回家过年666'                   
+                })
+            })
+            .then((res) => {
+                return res.text()
+            })
+            .then((res) => {
+                console.log(res)
+            })  
+     
     </script>
 </body>
 
