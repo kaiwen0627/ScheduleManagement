@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const moment = require('moment');
 
 const fs = require('fs');
 
@@ -8,7 +9,7 @@ let Schedule = require('../database/models/schedule');
 
 //初始化数据
 // Schedule.create({
-// 	"title": "回家过年",
+// 	"title": "回家过年4",
 // 	"desc": "回家",
 // 	"address": "咸阳"
 // });
@@ -55,4 +56,33 @@ router.post('/delSchedule', function (req, res) {
 	})
 });
 
+//修改日程
+router.post('/updateSchedule', function (req, res) {
+	// console.log(req.body);
+
+	Schedule.updateSchedule(req.body._id,req.body.update,(status) => {
+		res.send(200, status);
+	})
+});
+
+//查找日程列表
+router.post('/findScheduleListByAttr', function (req, res) {
+	console.log(req.body);
+
+	Schedule.findScheduleListByAttr(req.body.timeDian,(status) => {
+		res.send(200, status);
+	})
+});
+
+
+//全局查找相关日程列表
+router.post('/findScheduleListByWord', function (req, res) {
+	console.log(req.body);
+
+	Schedule.findScheduleListByWord(req.body.word,(status) => {
+		res.send(200, status);
+	})
+});
+
 module.exports = router;
+

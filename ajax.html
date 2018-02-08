@@ -6,11 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="http://momentjs.cn/downloads/moment.js"></script>
 </head>
 
 <body>
     <script>
-//获取账户信息(yes)
+        //现在时间
+        var nowTime = moment();
+        console.log(nowTime);
+    </script>
+
+
+    <script>
+        //获取账户信息(yes)
         // fetch('http://127.0.0.1:4000/api/getUserByAttr', {
         //         method: 'POST',
         //         headers: {
@@ -28,68 +36,135 @@
         //     .then((res) => {
         //         console.log(res)
         //     })
-//添加日程(yes)
-            // fetch('http://127.0.0.1:4000/api/addSchedule', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Accept': 'application/json',
-            //         'Content-Type': 'application/json'
-            //     },
-            //     body: JSON.stringify({
-            //         "title": 'mmp',
-            //         "desc": '0425',
-            //         "address": '5454',
-            //         "alertTime": Date.now(),
-            //         "isAllDay": 1,
-            //         "startTime": Date.now(),
-            //         "endTime": Date.now()
-            //     })
-            // })
-            // .then((res) => {
-            //     return res.text()
-            // })
-            // .then((res) => {
-            //     console.log(res)
-            // })
-    
-      //查询日程  (yes)
-    //    fetch('http://127.0.0.1:4000/api/findScheduleByAttr', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Accept': 'application/json',
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: JSON.stringify({
-    //                 attr:"title",
-    //                 val: 'mmp'                   
-    //             })
-    //         })
-    //         .then((res) => {
-    //             return res.text()
-    //         })
-    //         .then((res) => {
-    //             console.log(res)
-    //         })  
+        //添加日程(yes)
+        // fetch('http://127.0.0.1:4000/api/addSchedule', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify({
+        //         "title": 'mmp3',
+        //         "desc": '0425',
+        //         "address": '5454',
+        //         "alertTime": [nowTime.add(1, 'days').format("YYYY-MM-DD HH:mm"),nowTime.add(3, 'days').format("YYYY-MM-DD HH:mm")],
+        //         "isAllDay": 1,
+        //         "startTime": nowTime.format("YYYY-MM-DD HH:mm"),
+        //         "endTime": nowTime.add(5, 'days').format("YYYY-MM-DD HH:mm")
+        //     })
+        // })
+        // .then((res) => {
+        //     return res.text()
+        // })
+        // .then((res) => {
+        //     console.log(res)
+        // })
 
-          //查询日程  ()
-       fetch('http://127.0.0.1:4000/api/delSchedule', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    attr:"title",
-                    val: '回家过年666'                   
-                })
-            })
-            .then((res) => {
-                return res.text()
-            })
-            .then((res) => {
-                console.log(res)
-            })  
-     
+        //查询日程(用id查询)  (yes)
+        //    fetch('http://127.0.0.1:4000/api/findScheduleByAttr', {
+        //             method: 'POST',
+        //             headers: {
+        //                 'Accept': 'application/json',
+        //                 'Content-Type': 'application/json'
+        //             },
+        //             body: JSON.stringify({
+        //                 attr:"_id",
+        //                 val: '5a7be5706601d10108e02660'                   
+        //             })
+        //         })
+        //         .then((res) => {
+        //             return res.text()
+        //         })
+        //         .then((res) => {
+        //             console.log(res)
+        //         })  
+
+        //删除日程  (yes)
+        //    fetch('http://127.0.0.1:4000/api/delSchedule', {
+        //             method: 'POST',
+        //             headers: {
+        //                 'Accept': 'application/json',
+        //                 'Content-Type': 'application/json'
+        //             },
+        //             body: JSON.stringify({
+        //                 attr:"_id",
+        //                 val: '5a7be5746601d10108e02661'                   
+        //             })
+        //         })
+        //         .then((res) => {
+        //             return res.text()
+        //         })
+        //         .then((res) => {
+        //             console.log(res)
+        //         })  
+
+
+        //更新日程  (yes)
+        // fetch('http://127.0.0.1:4000/api/updateSchedule', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Accept': 'application/json',
+        //             'Content-Type': 'application/json'
+        //         },
+        //         body: JSON.stringify({
+        //             _id: "5a7be4e86601d10108e0265d",
+        //             update: {
+        //                 "title": '回家sd asd asd 99',
+        //                 "desc": '0425',
+        //                 "address": '5454',
+        //                 "alertTime": [nowTime.add(1, 'days').format("YYYY-MM-DD HH:mm"), nowTime.add(3,
+        //                 'days').format("YYYY-MM-DD HH:mm")],
+        //                 "isAllDay": 1,
+        //                 "startTime": nowTime.format("YYYY-MM-DD HH:mm"),
+        //                 "endTime": nowTime.add(5, 'days').format("YYYY-MM-DD HH:mm")
+        //             }
+        //         })
+        //     })
+        //     .then((res) => {
+        //         return res.text()
+        //     })
+        //     .then((res) => {
+        //         console.log(res)
+        //     })
+
+        //查找日程列表  (none)
+        // fetch('http://127.0.0.1:4000/api/findScheduleListByAttr', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Accept': 'application/json',
+        //             'Content-Type': 'application/json'
+        //         },
+        //         body: JSON.stringify({
+        //             timeDian:'2'// '1':当日  ，'2'：本月 ，'0':本年
+        //         })
+        //     })
+        //     .then((res) => {
+        //         return res.text()
+        //     })
+        //     .then((res) => {
+        //         console.log(res)
+        //     })
+
+          //全局查找相关日程列表  (yes)
+        // fetch('http://127.0.0.1:4000/api/findScheduleListByWord', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Accept': 'application/json',
+        //             'Content-Type': 'application/json'
+        //         },
+        //         body: JSON.stringify({
+        //             word:'回'
+        //         })
+        //     })
+        //     .then((res) => {
+        //         return res.text()
+        //     })
+        //     .then((res) => {
+        //         console.log(res)
+        //     })
+
+
+
     </script>
 </body>
 

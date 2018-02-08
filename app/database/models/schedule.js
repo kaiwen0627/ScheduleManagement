@@ -9,6 +9,10 @@ let _underscore = require('underscore');
 let bcrypt = require('bcryptjs');
 const SALT_WORK_FACTOR = 10;
 
+const moment = require('moment');
+let now = moment();
+
+
 let schedule = new Schema({
 	"title": {		
         type: String,
@@ -19,9 +23,8 @@ let schedule = new Schema({
 	"address": {	
 		type: String
 	},
-	"alertTime": {
-		type: Date,
-		default:Date.now()+5*3600*1000   //默认五分钟之后
+	"alertTime": {		
+		type:[String]
 	},
 	"cycleTime": {
 		type: Number,
@@ -31,13 +34,12 @@ let schedule = new Schema({
 		type: Number,
 		default: 0
 	},
-	"startTime": {
-		type: Date,
-		default: Date.now()
+	"startTime": {		
+		type: String,
+		default: now.format()
     },
-    "endTime": {
-		type: Date,
-		default: Date.now()
+    "endTime": {		
+		type:String
     },	
 	
 	"meta": {
@@ -56,33 +58,51 @@ schedule.statimethodscs = {};
 
 schedule.statics = {
 	
-	findScheduleList: function (attr, val, callback) {
-		if (attr && val) {
-			this.find({
-				[attr]: val,
-				"level": 1
-			}).sort({
-				"_id": -1
-			}).exec((err, userList) => {
-				if (err) {
-					console.log(err);
-				} else {
-					callback(userList);
-				}
-			});
-		} else {
-			this.find({
-				"level": 1
-			}).sort({
-				"_id": -1
-			}).exec((err, userList) => {
-				if (err) {
-					console.log(err);
-				} else {
-					callback(userList);
-				}
-			});
-		}
+	findScheduleListByAttr: function (time, callback) {
+		var reg = null;
+		var y=now.format("YYYY-MM-DD HH:mm").split('-')[0];
+		var m=now.format("YYYY-MM-DD HH:mm").split('-')[1];
+		var d = now.format("YYYY-MM-DD HH:mm").split('-')[2].split(' ')[0];
+		switch (time) {
+			//当日
+			case '1':
+				reg = new RegExp(d, 'i');
+				break;
+			//当月	
+			case '2':
+				reg = new RegExp(m, 'i');
+				break;
+			//当年	
+			default:
+				reg = new RegExp(y, 'i');
+			}
+			console.log(reg);
+		this.find({
+			endTime:reg
+		}).sort({
+			"_id": -1
+		}).exec((err, userList) => {
+			if (err) {
+				console.log(err);
+			} else {
+				callback(userList);
+
+			}
+		});
+	},
+	findScheduleListByWord: function (word, callback) {
+		var reg = new RegExp(word, 'i');
+		//支持描述、标题、地址搜索
+		this.find({$or:[{"desc":reg},{"title": reg},{"address":reg}]}).sort({
+			"_id": -1
+		}).exec((err, userList) => {
+			if (err) {
+				console.log(err);
+			} else {
+				callback(userList);
+
+			}
+		});
 	},
 	findScheduleByAttr: function (attr, val, callback) {
 		this.findOne({
@@ -97,6 +117,7 @@ schedule.statics = {
 		});
 	},
 	addSchedule: function (scheduleinfo, callback) {
+		//console.log(now.format("YYYY-MM-DD HH:mm"));
 		let schedule = {
 			"title": scheduleinfo.title,
 			"desc": scheduleinfo.desc,
@@ -136,11 +157,11 @@ schedule.statics = {
 			}
 		})
 	},
-	updateSchedule: function (name, update, callback) {
+	updateSchedule: function (id, update, callback) {
 		var _this = this;
 		this.findOne({
-			'name': name
-		}, function (err, oldUser) {
+			'_id': id
+		}, function (err, oldSchedule) {
 			if (err) {
 				callback({
 					'status': "faile",
@@ -149,7 +170,7 @@ schedule.statics = {
 			} else {
 				let canReset = false;
 				for (let attr in update) {
-					if (update[attr] == oldUser[attr]) {
+					if (update[attr] == oldSchedule[attr]) {
 						canReset = false;
 					} else {
 						canReset = true;
@@ -165,12 +186,13 @@ schedule.statics = {
 					return false;
 				}
 
-				let newUser = _underscore.extend(oldUser, update);
-				newUser.meta.updateAt = Date.now();
+				let newSchedule = _underscore.extend(oldSchedule, update);
+				newSchedule.meta.updateAt = Date.now();
+				console.log(newSchedule.meta)
 
 				_this.update({
-					'name': name
-				}, newUser, {
+					'_id': id
+				}, newSchedule, {
 					upsert: true
 				}, function (error) {
 					if (err) {
@@ -181,7 +203,7 @@ schedule.statics = {
 					} else {
 						callback({
 							'status': "success",
-							'userMes': newUser
+							'userMes': newSchedule
 						});
 					}
 				});
