@@ -44,9 +44,11 @@
         //         'Content-Type': 'application/json'
         //     },
         //     body: JSON.stringify({
-        //         "title": 'mmp3',
+        //         "title": 'mmp56565',
+        //         "name":'kaiwen3',
+        //         "phone":'17629258733',
         //         "desc": '0425',
-        //         "address": '5454',
+        //         "address": '咸阳',
         //         "alertTime": [nowTime.add(1, 'days').format("YYYY-MM-DD HH:mm"),nowTime.add(3, 'days').format("YYYY-MM-DD HH:mm")],
         //         "isAllDay": 1,
         //         "startTime": nowTime.format("YYYY-MM-DD HH:mm"),
@@ -79,7 +81,7 @@
         //             console.log(res)
         //         })  
 
-        //删除日程  (yes)
+        //删除id日程  (yes)
         //    fetch('http://127.0.0.1:4000/api/delSchedule', {
         //             method: 'POST',
         //             headers: {
@@ -127,7 +129,7 @@
         //         console.log(res)
         //     })
 
-        //查找日程列表  (none)
+        //查找日程列表  (yes -6)
         // fetch('http://127.0.0.1:4000/api/findScheduleListByAttr', {
         //         method: 'POST',
         //         headers: {
@@ -135,6 +137,7 @@
         //             'Content-Type': 'application/json'
         //         },
         //         body: JSON.stringify({
+        //             phone:'17629258733',
         //             timeDian:'2'// '1':当日  ，'2'：本月 ，'0':本年
         //         })
         //     })
@@ -145,7 +148,7 @@
         //         console.log(res)
         //     })
 
-          //全局查找相关日程列表  (yes)
+          //全局查找相关日程列表  (yes-6)
         // fetch('http://127.0.0.1:4000/api/findScheduleListByWord', {
         //         method: 'POST',
         //         headers: {
@@ -153,7 +156,8 @@
         //             'Content-Type': 'application/json'
         //         },
         //         body: JSON.stringify({
-        //             word:'回'
+        //             word:'咸阳',
+        //             phone:'17629258733'
         //         })
         //     })
         //     .then((res) => {

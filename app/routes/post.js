@@ -69,7 +69,7 @@ router.post('/updateSchedule', function (req, res) {
 router.post('/findScheduleListByAttr', function (req, res) {
 	console.log(req.body);
 
-	Schedule.findScheduleListByAttr(req.body.timeDian,(status) => {
+	Schedule.findScheduleListByAttr(req.body.phone,req.body.timeDian,(status) => {
 		res.send(200, status);
 	})
 });
@@ -79,7 +79,7 @@ router.post('/findScheduleListByAttr', function (req, res) {
 router.post('/findScheduleListByWord', function (req, res) {
 	console.log(req.body);
 
-	Schedule.findScheduleListByWord(req.body.word,(status) => {
+	Schedule.findScheduleListByWord(req.body.phone,req.body.word,(status) => {
 		res.send(200, status);
 	})
 });

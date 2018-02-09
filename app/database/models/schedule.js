@@ -17,6 +17,12 @@ let schedule = new Schema({
 	"title": {		
         type: String,
 	},
+	"name": {
+		type: String,		
+	},
+	"phone": {		
+		type: String
+	},
 	"desc": {
 		type: String,
 	},
@@ -58,7 +64,7 @@ schedule.statimethodscs = {};
 
 schedule.statics = {
 	
-	findScheduleListByAttr: function (time, callback) {
+	findScheduleListByAttr: function (phone,time, callback) {
 		var reg = null;
 		var y=now.format("YYYY-MM-DD HH:mm").split('-')[0];
 		var m=now.format("YYYY-MM-DD HH:mm").split('-')[1];
@@ -78,22 +84,23 @@ schedule.statics = {
 			}
 			console.log(reg);
 		this.find({
-			endTime:reg
+			'phone': phone,
+			'endTime':reg
 		}).sort({
 			"_id": -1
-		}).exec((err, userList) => {
+		}).exec((err, scheduleList) => {
 			if (err) {
 				console.log(err);
 			} else {
-				callback(userList);
+				callback(scheduleList);
 
 			}
 		});
 	},
-	findScheduleListByWord: function (word, callback) {
+	findScheduleListByWord: function (phone,word, callback) {
 		var reg = new RegExp(word, 'i');
 		//支持描述、标题、地址搜索
-		this.find({$or:[{"desc":reg},{"title": reg},{"address":reg}]}).sort({
+		this.find({'phone':phone,$or:[{"desc":reg},{"title": reg},{"address":reg}]}).sort({
 			"_id": -1
 		}).exec((err, userList) => {
 			if (err) {
@@ -121,6 +128,8 @@ schedule.statics = {
 		let schedule = {
 			"title": scheduleinfo.title,
 			"desc": scheduleinfo.desc,
+			"name": scheduleinfo.name,
+			"phone": scheduleinfo.phone,
 			"address": scheduleinfo.address,
 			"alertTime": scheduleinfo.alertTime,
 			"isAllDay": scheduleinfo.isAllDay,

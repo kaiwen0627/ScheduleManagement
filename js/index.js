@@ -25,16 +25,19 @@ data();
 //切换视图
 $('.views-btn .otherView').on('click', function () {
     window.location = './Schedule.html';
-})
+});
 
 $('.addNew').on('click', function () {
     window.location = './creatWork.html';
-})
+});
 
 $('.mainList').on('click', 'li', function () {
     window.location = './listinfo.html?';
-})
+});
 
 $('.views-btn .gotoday').on('click', function () {
     data();
-})
+});
+
+
+
