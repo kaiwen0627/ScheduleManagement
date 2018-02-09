@@ -185,3 +185,6 @@
   color: #fff;
   border-radius: 20px;
 }
+.hide {
+  display: none;
+}

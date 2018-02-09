@@ -30,100 +30,100 @@
     <div class="pannal  pannal-01">
         <ul>
             <li class="row">
-                <input type="text" placeholder="请输入事件标题" class="event">
+                <input type="text" id="title" placeholder="请输入事件标题" class="event">
             </li>
             <li class="row">
-                <input type="text" placeholder="请输入地点（可选）" class="event">
+                <input type="text" id="address" placeholder="请输入地点（可选）" class="event">
             </li>
             <li class="row">
-                <input type="text" placeholder="请输入事件描述（可选）" class="event">
+                <input type="text" id="dec" placeholder="请输入事件描述（可选）" class="event">
             </li>
             <li class="row">
                 <span>全天事件</span>
-                <p class="isAllDay"></p>
+                <p class="isAllDay" id='isAllDay'></p>
             </li>
             <li class="row view1">
                 <span>开始时间</span>
                 <span class="time startTime">
-                    <input type="datetime-local">
+                    <input type="datetime-local" id="startTime1">
                 </span>
             </li>
             <li class="row view1">
                 <span>结束时间</span>
                 <span class="time overTime">
-                    <input type="datetime-local">
+                    <input type="datetime-local" id="overTime1">
                 </span>
             </li>
             <li class="row view2">
                 <span>开始时间</span>
                 <span class=" time startTime">
-                    <input type="date">
+                    <input type="date" id="startTime2">
                 </span>
             </li>
             <li class="row view2">
                 <span>结束时间</span>
                 <span class="time overTime">
-                    <input type="date">
+                    <input type="date" id="overTime2">
                 </span>
             </li>
             <li class="row">
                 <span>提醒</span>
-                <p class="isAlert"></p>
+                <p class="isAlert" id="isAlert"></p>
             </li>
             <li class="row row-con isAlert-con">
                 <p>
                     <label>
-                        <input type="checkbox" name="tixing">5分钟前</label>
+                        <input type="checkbox" name="tixing" value="5">5分钟前</label>
                 </p>
                 <p>
                     <label>
-                        <input type="checkbox" name="tixing">10分钟前</label>
+                        <input type="checkbox" name="tixing" value="10">10分钟前</label>
                 </p>
                 <p>
                     <label>
-                        <input type="checkbox" name="tixing">15分钟前</label>
+                        <input type="checkbox" name="tixing" value="15">15分钟前</label>
                 </p>
                 <p>
                     <label>
-                        <input type="checkbox" name="tixing">30分钟前</label>
+                        <input type="checkbox" name="tixing" value="30">30分钟前</label>
                 </p>
                 <p>
                     <label>
-                        <input type="checkbox" name="tixing">1小时前</label>
+                        <input type="checkbox" name="tixing" value="60">1小时前</label>
                 </p>
                 <p>
                     <label>
-                        <input type="checkbox" name="tixing">1天前</label>
+                        <input type="checkbox" name="tixing" value="1d">1天前</label>
                 </p>
                 <p>
                     <label>
-                        <input type="checkbox" name="tixing">1周前</label>
+                        <input type="checkbox" name="tixing" value="1w">1周前</label>
                 </p>
             </li>
-            <li class="row">
+            <li class="row hide" >
                 <span>重复</span>
                 <p class="isRepeat"></p>
             </li>
             <li class="row row-con isRepeat-con">
                 <p>
                     <label>
-                        <input type="radio" name="tixing">一次性活动</label>
+                        <input type="radio" name="cycleTime" value="1">一次性活动</label>
                 </p>
                 <p>
                     <label>
-                        <input type="radio" name="tixing">每日</label>
+                        <input type="radio" name="cycleTime"  value="2">每日</label>
                 </p>
                 <p>
                     <label>
-                        <input type="radio" name="tixing">每周</label>
+                        <input type="radio" name="cycleTime" value="3" >每周</label>
                 </p>
                 <p>
                     <label>
-                        <input type="radio" name="tixing">每月</label>
+                        <input type="radio" name="cycleTime"  value="4">每月</label>
                 </p>
                 <p>
                     <label>
-                        <input type="radio" name="tixing">每年</label>
+                        <input type="radio" name="cycleTime"  value="5">每年</label>
                 </p>
 
             </li>
@@ -136,6 +136,7 @@
 
 
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="http://momentjs.cn/downloads/moment.js"></script>
     <script src="./js/creatWork.js"></script>
 </body>
 

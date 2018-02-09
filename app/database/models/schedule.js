@@ -32,6 +32,9 @@ let schedule = new Schema({
 	"alertTime": {		
 		type:[String]
 	},
+	"alertTimeIndex": {		
+		type:[Number]
+	},
 	"cycleTime": {
 		type: Number,
 		default:0
@@ -97,6 +100,25 @@ schedule.statics = {
 			}
 		});
 	},
+	findScheduleListByTime: function (phone,time, callback) {
+	
+		reg = new RegExp(time, 'i');
+		
+		this.find({
+			'phone': phone,
+			'startTime':reg
+		}).sort({
+			"_id": -1
+		}).exec((err, scheduleList) => {
+			if (err) {
+				console.log(err);
+			} else {
+				console.log(typeof scheduleList)
+				callback(scheduleList);
+
+			}
+		});
+	},
 	findScheduleListByWord: function (phone,word, callback) {
 		var reg = new RegExp(word, 'i');
 		//支持描述、标题、地址搜索
@@ -135,6 +157,7 @@ schedule.statics = {
 			"isAllDay": scheduleinfo.isAllDay,
 			"startTime": scheduleinfo.startTime,
 			"endTime": scheduleinfo.endTime,
+			"alertTimeIndex": scheduleinfo.alertTimeIndex,
 		}
 
 		this.create(schedule, (err) => {
@@ -179,13 +202,26 @@ schedule.statics = {
 			} else {
 				let canReset = false;
 				for (let attr in update) {
-					if (update[attr] == oldSchedule[attr]) {
-						canReset = false;
-					} else {
+					console.log(typeof update[attr])
+					if (attr == 'alertTime') { 
+						break;						
+					}
+					if (update[attr] != oldSchedule[attr]) {
+						console.log(update[attr])
 						canReset = true;
 						break;
+					} else {
+						console.log('tip')
+						canReset = false;						
 					}
+				
+					console.log(canReset)
+					
 				}
+				console.log('!!!!!!!!!')
+
+				console.log(canReset)
+				console.log(!canReset)
 
 				if (!canReset) {
 					callback({
@@ -195,9 +231,13 @@ schedule.statics = {
 					return false;
 				}
 
+
+				// console.log(oldSchedule)
+				// console.log(update)
+				
 				let newSchedule = _underscore.extend(oldSchedule, update);
 				newSchedule.meta.updateAt = Date.now();
-				console.log(newSchedule.meta)
+				// console.log(newSchedule)
 
 				_this.update({
 					'_id': id

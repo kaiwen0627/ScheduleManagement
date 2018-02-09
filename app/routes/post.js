@@ -60,7 +60,7 @@ router.post('/delSchedule', function (req, res) {
 router.post('/updateSchedule', function (req, res) {
 	// console.log(req.body);
 
-	Schedule.updateSchedule(req.body._id,req.body.update,(status) => {
+	Schedule.updateSchedule(req.body._id,req.body.updata,(status) => {
 		res.send(200, status);
 	})
 });
@@ -80,6 +80,15 @@ router.post('/findScheduleListByWord', function (req, res) {
 	console.log(req.body);
 
 	Schedule.findScheduleListByWord(req.body.phone,req.body.word,(status) => {
+		res.send(200, status);
+	})
+});
+
+//全局指定时间日程列表
+router.post('/findScheduleListByTime', function (req, res) {
+	console.log(req.body);
+
+	Schedule.findScheduleListByTime(req.body.phone,req.body.time,(status) => {
 		res.send(200, status);
 	})
 });

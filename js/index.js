@@ -1,10 +1,20 @@
+var hostUrl = 'http://127.0.0.1:4000';
+var nowTime = moment();
+console.log(nowTime);
+
 function data() {
-    console.log('ppp');
     var mySchedule = new Schedule({
         el: '#schedule-box',
         //date: '2018-9-20',
         clickCb: function (y, m, d) {
             console.log(y, m, d);
+            m > 9
+                ? m = m
+                : m = '0' + m;
+            d > 9
+                ? d = d
+                : d = '0' + d;
+            scheduleList(y + '-' + m + '-' + d);
         },
         nextMonthCb: function (y, m, d) {
             console.log(y, m, d);
@@ -32,12 +42,43 @@ $('.addNew').on('click', function () {
 });
 
 $('.mainList').on('click', 'li', function () {
-    window.location = './listinfo.html?';
+    window.location = './listinfo.html?id='+this.id;
 });
 
 $('.views-btn .gotoday').on('click', function () {
     data();
 });
 
+//展示当天日程
+function scheduleList(time) {
+    fetch('http://127.0.0.1:4000/api/findScheduleListByTime', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+            body: JSON.stringify({phone: '17629258733', time: time})
+        })
+        .then(response => response.json())
+        .then((res) => {
+            console.log(res.length);
+            var dom = '';
+            if (res.length) {
+                $(res)
+                    .each(function () {
+                        dom += ' <li id='+this._id+'><p class="L-name">' + this.title + '</p><p class = "doThingsTime" ><span class="fromTime">' + this.startTime + '</span><span> -- </span><span class = "toTime" > ' + this.endTime + '</span></p></li>';
+                    });
+            } else {
+                dom = '<h3>今天好像没有安排！</h3>'
+            }
+            $('#list')
+                .html('')
+                .append(dom);
+        })
+}
 
-
+//页面刚进入查询日程(function () {
+{
+    var time = nowTime.format('YYYY-MM-DD');
+    scheduleList(time);
+}
