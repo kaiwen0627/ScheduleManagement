@@ -3,7 +3,8 @@
   background-color: #F7F7F7;
   position: relative;
   text-align: center;
-  color: #333;
+  color: #fff;
+  background-color: #3d8cf8;
 }
 .topMenu .goBack {
   position: absolute;
@@ -14,15 +15,11 @@
   line-height: 2rem;
 }
 .topMenu .goBack span {
-  display: inline-block;
-  margin-top: 0.4rem;
-  width: 90%;
-  height: 1.2rem;
-  border: 1px solid #ddd;
-  background-color: #F7F7F7;
-  font-size: 0.7rem;
-  line-height: 1.2rem;
-  border-radius: 5px;
+  display: block;
+  height: 40px;
+  width: 22px;
+  font-size: 1rem;
+  color: #fff;
 }
 .topMenu .navInfo {
   width: 100px;
@@ -40,20 +37,20 @@
   display: block;
   width: 0;
   height: 0;
-  border: 5px solid #ABABAB;
+  border: 5px solid #ffffff;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-bottom: 5px solid transparent;
 }
 .dateMenu {
   display: none;
-  background-color: #1DABA7;
+  background-color: #eee;
   width: 100px;
   margin: 0 auto;
   position: relative;
   top: 0;
   z-index: 9;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 .dateMenu:after {
   content: '';
@@ -65,15 +62,16 @@
   display: block;
   width: 0;
   height: 0;
-  border: 10px solid #1DABA7;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid transparent;
+  border: 8px solid #eee;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 12px solid transparent;
 }
 .dateMenu li {
   height: 36px;
   line-height: 36px;
-  color: #fff;
+  color: #3d8cf8;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.863);
 }
 .mainList ul {
   padding-left: 50px;
@@ -93,14 +91,19 @@
   left: -30px;
   top: 1.1rem;
   border-radius: 50%;
-  background-color: #1DABA7;
+  background-color: #3d8cf8;
 }
 .mainList ul li .doThingsTime {
   color: #999;
+  font-size: 12px;
 }
 .mainList ul li .L-name {
   padding-right: 20px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+.mainList ul h3 {
+  margin-top: 20px;
+  color: #999;
 }

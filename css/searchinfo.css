@@ -1,6 +1,7 @@
 .top {
-  height: 2.4rem;
+  height: 2rem;
   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.16), 0 -2px 4px 0 rgba(0, 0, 0, 0.16);
+  background-color: #3d8cf8;
 }
 .top .back {
   position: absolute;
@@ -8,15 +9,17 @@
   left: 0.5rem;
 }
 .top .back a {
-  padding: 0.3rem 0.5rem;
-  border-radius: 0.2rem;
-  border: 1px solid #ccc;
-  color: #000;
+  display: block;
+  height: 40px;
+  width: 22px;
+  font-size: 1rem;
+  color: #fff;
 }
 .top .tit {
   padding-top: 0.5rem;
   text-align: center;
   top: 0.5rem;
+  color: #fff;
 }
 .search {
   height: 36px;
@@ -65,7 +68,7 @@
   left: -30px;
   top: 1.1rem;
   border-radius: 50%;
-  background-color: #1DABA7;
+  background-color: #3d8cf8;
 }
 .mainList ul li .doThingsTime {
   color: #999;

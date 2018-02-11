@@ -14,7 +14,7 @@ $(function () {
            alert('没有关键词我找不到数据啊，亲');
            return false;
        }
-   //全局查找相关日程列表  (yes-6)
+   //全局查找相关日程列表
         fetch(hostUrl+'/api/findScheduleListByWord', {
                 method: 'POST',
                 headers: {

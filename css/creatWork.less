@@ -1,31 +1,12 @@
 // all
-@mc: #1DABA7;
-.top {
-    height: 2rem;
-    .back {
-        position: absolute;
-        top: 0.5rem;
-        left: 0.5rem;
-        a {
-            padding: 0.3rem 0.5rem;
-            border-radius: 0.2rem;
-            border: 1px solid #ccc;
-            color: #000;
-        }
-    }
-    .tit {
-        padding-top: 0.5rem;
-        text-align: center;
-        top: 0.5rem;
-    }
-}
+@mc: #3d8cf8;
 
 .topMenu {
     height: 2rem;
-    background-color: #F7F7F7;
+    background-color: @mc;
     position: relative;
     text-align: center;
-    color: #333;
+    color: #fff;
     .goBack {
         position: absolute;
         top: 0;
@@ -33,16 +14,12 @@
         height: 100%;
         width: 60px;
         line-height: 2rem;
-        span {
-            display: inline-block;
-            margin-top: 0.4rem;
-            width: 90%;
-            height: 1.2rem;
-            border: 1px solid #ddd;
-            background-color: #F7F7F7;
-            font-size: 0.7rem;
-            line-height: 1.2rem;
-            border-radius: 5px;
+        span {           
+            display: block;
+            height: 40px;
+            width: 22px;
+            font-size: 1rem;
+            color: #fff;
         }
     }
     .navInfo {
@@ -56,6 +33,8 @@
 }
 
 .tab {
+    //#1期不做，暂时隐藏
+    display: none;
     border-bottom: 10px solid #eee;
     margin-bottom: 10px;
     ul {
@@ -85,6 +64,10 @@
         padding: 0 10px;
         margin: 0 20px;
         border-bottom: 1px solid #ccc;
+        font-size: 14px;
+        input{
+            font-size: 14px;
+        }
     }
 }
 
@@ -106,9 +89,10 @@
             height: 100%;
             color: #6E6E6E;
             input {
-                height: 90%;
+                height: 80%;
                 border: none;
                 background-color: #fff;
+                
             }
         }
         .time {
@@ -168,7 +152,7 @@
             line-height: 30px;
             display: inline-block;
             input {
-                margin-right: 10px;
+                margin-right: 10px;                
             }
         }
     }
@@ -181,11 +165,11 @@
         text-align: center;
         height: 40px;
         line-height: 40px;
-        width: 200px;
+        width: 90%;
         margin: 0 auto;
-        background-color: rgb(24, 185, 86);
+        background-color: @mc;
         color: #fff;
-        border-radius: 20px;
+        border-radius: 5px;
     }
 }
 

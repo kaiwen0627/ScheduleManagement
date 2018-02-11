@@ -18,24 +18,24 @@
     }
 }
 
-.mid {
-    position: relative;
+.mid {   
     .schedule {
+        position: relative;
         padding: 0 0.5rem 0.5rem;
         background-color: @mc;
-        height: 6rem;
-        bottom: 1rem;
+        height: 6rem;       
         color: #fff;
         .scheduleName {
-            position: absolute;
-            bottom: 4rem;
+          
+            position: absolute; 
+            bottom: 40px;             
             span {
                 font-size: 0.8rem;
             }
         }
         .scheduleTime {
-            position: absolute;
-            bottom: 2.3rem;
+            position: absolute; 
+            bottom: 10px;          
         }
     }
     .remind {
@@ -43,17 +43,41 @@
         padding-bottom: 0.5rem;
         border-bottom: 1px solid #ccc;
         height: 2.0rem;
-        a {
-            position: absolute;
-            left: 0.5rem;
-            font-size: 0.7rem;
+        color: #666;
+        overflow: hidden;
+        &.info{
+            border-bottom: 1px solid #eee;
         }
-        span {
-            position: absolute;
-            right: 0.5rem;
-            font-size: 0.7rem;
-        }
+      .name{
+          float: left;         
+          padding-left: 15px;
+          width: 60px;
+      }
+      .noteInfoL{
+          display: none;
+      }
+      .noteInfo,
+      .noteAddress,
+      .retime{
+          float: right;
+          padding-right: 15px;
+          max-width: 60%;
+          overflow: hidden;
+      }
     }
+    .noteInfo{
+        padding: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 10px 10px #eee;
+    }
+    .addressinfo{
+        margin-bottom: 20px;
+        box-shadow: 0 10px 10px #eee;
+    }
+    // .remind-info{
+    //     margin-top: 20px;
+    //     box-shadow: 0 -10px 0 #eee;
+    // }
 }
 
 .bottom {

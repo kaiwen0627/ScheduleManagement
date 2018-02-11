@@ -15,42 +15,59 @@
   width: 22px;
   font-size: 1rem;
 }
-.mid {
-  position: relative;
-}
 .mid .schedule {
+  position: relative;
   padding: 0 0.5rem 0.5rem;
   background-color: #3d8cf8;
   height: 6rem;
-  bottom: 1rem;
   color: #fff;
 }
 .mid .schedule .scheduleName {
   position: absolute;
-  bottom: 4rem;
+  bottom: 40px;
 }
 .mid .schedule .scheduleName span {
   font-size: 0.8rem;
 }
 .mid .schedule .scheduleTime {
   position: absolute;
-  bottom: 2.3rem;
+  bottom: 10px;
 }
 .mid .remind {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid #ccc;
   height: 2.0rem;
+  color: #666;
+  overflow: hidden;
 }
-.mid .remind a {
-  position: absolute;
-  left: 0.5rem;
-  font-size: 0.7rem;
+.mid .remind.info {
+  border-bottom: 1px solid #eee;
 }
-.mid .remind span {
-  position: absolute;
-  right: 0.5rem;
-  font-size: 0.7rem;
+.mid .remind .name {
+  float: left;
+  padding-left: 15px;
+  width: 60px;
+}
+.mid .remind .noteInfoL {
+  display: none;
+}
+.mid .remind .noteInfo,
+.mid .remind .noteAddress,
+.mid .remind .retime {
+  float: right;
+  padding-right: 15px;
+  max-width: 60%;
+  overflow: hidden;
+}
+.mid .noteInfo {
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 10px #eee;
+}
+.mid .addressinfo {
+  margin-bottom: 20px;
+  box-shadow: 0 10px 10px #eee;
 }
 .bottom {
   position: fixed;
