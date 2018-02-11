@@ -1,4 +1,4 @@
-var hostUrl = 'http://127.0.0.1:4000';
+
 $('.back')
     .on('click', function () {
         window.location.href = '/index.html';
@@ -44,7 +44,7 @@ function delect() {
         .split('=')[1];
 
     if (r == true) {
-        fetch('http://127.0.0.1:4000/api/delSchedule', {
+        fetch(hostUrl+'/api/delSchedule', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

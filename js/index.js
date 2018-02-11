@@ -1,6 +1,9 @@
-var hostUrl = 'http://127.0.0.1:4000';
 var nowTime = moment();
 console.log(nowTime);
+
+var username = getCookie('username');
+var userphone = getCookie('userphone');
+
 
 function data() {
     var mySchedule = new Schedule({
@@ -55,13 +58,13 @@ $('.views-btn .gotoday').on('click', function () {
 
 //展示当天日程
 function scheduleList(time) {
-    fetch('http://127.0.0.1:4000/api/findScheduleListByTime', {
+    fetch(hostUrl+'/api/findScheduleListByTime', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-            body: JSON.stringify({phone: '17629258733', time: time})
+            body: JSON.stringify({phone: userphone, time: time})
         })
         .then(response => response.json())
         .then((res) => {

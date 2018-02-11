@@ -1,4 +1,7 @@
 $(function () {
+    var username = getCookie('username');
+    var userphone = getCookie('userphone');    
+  
     //点击返回
     $('.goBack').on('click', function () {       
         window.location.href = '/index.html';
@@ -12,7 +15,7 @@ $(function () {
         var time;
         $('.navInfo').text($(this).text());       
         $('.dateMenu').slideUp();
-        alert('读数据库')
+        //alert('读数据库')
         switch ($(this).text()) {
             case '本月日程':
             time = '2';
@@ -31,14 +34,14 @@ $(function () {
     });
 
     function data(time) {
-        fetch('http://127.0.0.1:4000/api/findScheduleListByAttr', {
+        fetch(hostUrl+'/api/findScheduleListByAttr', {
            method: 'POST',
            headers: {
                'Accept': 'application/json',
                'Content-Type': 'application/json'
            },
            body: JSON.stringify({
-               phone:'17629258733',
+               phone:userphone,
                timeDian:time// '1':当日  ，'2'：本月 ，'0':本年
            })
        })

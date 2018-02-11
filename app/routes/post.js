@@ -15,12 +15,20 @@ let Schedule = require('../database/models/schedule');
 // });
 
 // User.create({
-// 	"name": "杨璐",
-// 	"email": "666666@163.com	",
-// 	"phone": "98745632101"
+// 	"name": "user2",
+// 	"email": "222222@163.com",
+// 	"phone": "12345678901",
+// 	"password":'123456'
 // });
 
 
+// 校验密码并获取账户信息
+router.post('/checkpassword', function (req, res) {
+	console.log(req.body)
+	User.checkpassword(req.body.attr,req.body.val,req.body.password,(user) => {
+		res.send(200, user);
+	})
+});
 
 
 // 获取账户信息

@@ -89,6 +89,48 @@ userSchema.statics = {
 				callback(user);				
 			}
 		});
+	},
+	checkpassword: function (attr, val, password, callback) {
+		var _this = this;
+		this.findOne({
+			[attr]: val
+		}, function (err, dbUser) {
+			if (err) {
+				callback({
+					'status': "faile",
+					'mes': err
+				});
+			} else {
+				if (dbUser == null) {
+					callback({
+						'status': "faile",
+						'mes': '账号错误'
+					});
+				} else {
+					bcrypt.compare(password, dbUser.password, function (err, isMatch) {
+						if (err) {
+							callback({
+								'status': "faile",
+								'mes': '校验失败'
+							});
+						} else {
+							if (isMatch) {
+								callback({
+									'status': "success",
+									'mes': '密码正确',
+									'userMes': dbUser
+								});
+							} else {
+								callback({
+									'status': "faile",
+									'mes': '密码错误'
+								});
+							}
+						}
+					})
+				}
+			}
+		})
 	}
 }
 

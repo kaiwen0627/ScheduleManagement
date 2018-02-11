@@ -1,4 +1,6 @@
-var hostUrl = 'http://127.0.0.1:4000';
+var username = getCookie('username');
+var userphone = getCookie('userphone');
+
 $('.goBack').on('click', function () {
     window.location.href = '/index.html';
 });
@@ -178,8 +180,8 @@ function submit(id) {
     //console.log(alertTimeIndex);
     var sData = {
         "title": title,
-        "name": 'kaiwen3',
-        "phone": '17629258733',
+        "name": username,
+        "phone": userphone,
         "desc": dec,
         "address": address,
         "alertTime": alertTime,

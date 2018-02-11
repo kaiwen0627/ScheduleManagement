@@ -1,4 +1,7 @@
 $(function () {
+    var username = getCookie('username');
+    var userphone = getCookie('userphone');
+
     $('.back').on('click', function () {       
         window.location.href = '/index.html';
     });
@@ -6,9 +9,13 @@ $(function () {
         window.location = './listinfo.html?id='+this.id;
     }); 
    $('.sebtn').on('click', function () {
-        var word = $('.word').val();
+       var word = $('.word').val();
+       if (!word) {
+           alert('没有关键词我找不到数据啊，亲');
+           return false;
+       }
    //全局查找相关日程列表  (yes-6)
-        fetch('http://127.0.0.1:4000/api/findScheduleListByWord', {
+        fetch(hostUrl+'/api/findScheduleListByWord', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -16,7 +23,7 @@ $(function () {
                 },
                 body: JSON.stringify({
                     word:word,
-                    phone:'17629258733'
+                    phone:userphone
                 })
             })
             .then((res) => {
