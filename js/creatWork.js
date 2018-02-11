@@ -66,10 +66,18 @@ function getval(ele) {
             return $(this).val();
         })
 }
-var val1 = getval('#startTime1');
-var val2 = getval('#startTime2');
-var val3 = getval('#overTime1');
-var val4 = getval('#overTime2');
+// var val1 = getval('#startTime1');
+// var val2 = getval('#startTime2');
+// var val3 = getval('#overTime1');
+// var val4 = getval('#overTime2');
+
+var st1 = $('#startTime1');
+var st2 = $('#startTime2');
+var ot1 = $('#overTime1');
+var ot2 = $('#overTime2');
+var $title = $('#title');
+
+
 var $title = $('#title');
 
 
@@ -78,26 +86,38 @@ var $title = $('#title');
 var startTime = '';
 var overTime = '';
 function submit(id) {
-    console.log($('#overTime1').val())  
+    console.log(st1.val().replace(/T/g,' '))  
+    console.log(st2.val().replace(/T/g,' '))  
+    console.log(ot1.val().replace(/T/g,' '))  
+    console.log(ot2.val().replace(/T/g, ' '))  
+    
+    //处理修改日程时间格式
+    var st1_val=st1.val().replace(/T/g, ' ');
+    var ot1_val=ot1.val().replace(/T/g, ' ');
+    if (id) {
+        st1_val = st1.val().replace(/T/g, ' ')+':00';
+        ot1_val = ot1.val().replace(/T/g, ' ')+':00';
+    }
+
         title = $title.val() || '新日程';
     var address = $('#address').val() || '';
     var dec = $('#dec').val() || '';
     var isAllDay = $('#isAllDay').hasClass('on');
     if (isAllDay) {
-        isAllDay = 1;
-        var d1 = moment(val2).format('YYYY-MM-DD HH:mm:ss');
-        startTime = d1;
-        var d2 = moment(val4).format('YYYY-MM-DD HH:mm:ss');
-        overTime = d2;
-    } else {
-        var monent1 = moment('2017-06-02 13:20:25');
-        console.log(monent1.format('YYYY-MM-DD HH:mm:ss'));
-
+        isAllDay = 1;      
+        startTime =  moment(st2.val()).format('YYYY-MM-DD HH:mm:ss');       
+        overTime = moment(ot2.val()).format('YYYY-MM-DD HH:mm:ss');
+    } else {      
         isAllDay = 0;
-        var dd = moment(val1).format('YYYY-MM-DD HH:mm:ss');
-        startTime = dd;
-        var dd2 = moment(val3).format('YYYY-MM-DD HH:mm:ss');
-        overTime = dd2;
+        if (!id) {            
+            startTime =moment(st1_val).format('YYYY-MM-DD HH:mm:ss');          
+            overTime = moment(ot1_val).format('YYYY-MM-DD HH:mm:ss');
+        } else {           
+            startTime = st1_val;          
+            overTime = ot1_val;
+            //console.log(startTime);
+        }
+       
     }
     var alertTime = [];
     var alertTimeIndex = [];
@@ -142,7 +162,7 @@ function submit(id) {
                     .format('YYYY-MM-DD HH:mm:ss');
 
         }
-        alertTime.push(val);
+        //alertTime.push(val);
     });
     $('input[name = "tixing"]').each(function (i, v) {
         if ($(this).is(":checked")) {           
@@ -155,7 +175,7 @@ function submit(id) {
     }
 
     var cycleTime = $('input[name = "cycleTime"]:checked').val();
-    console.log(alertTimeIndex);
+    //console.log(alertTimeIndex);
     var sData = {
         "title": title,
         "name": 'kaiwen3',
@@ -170,9 +190,9 @@ function submit(id) {
     }
 
     console.log(sData);
-    alert(id);
+    //alert(id);
     if (!id) {
-        alert(id);
+        //alert(id);
         fetch(hostUrl + '/api/addSchedule', {
             method: 'POST',
             headers: {
@@ -190,6 +210,9 @@ function submit(id) {
             }
         })
     } else {
+        console.log(sData);
+        console.log(startTime);
+        console.log(overTime);
         fetch(hostUrl + '/api/updateSchedule', {
             method: 'POST',
             headers: {

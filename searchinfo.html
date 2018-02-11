@@ -1,51 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="browsermode" content="application"/>
+    <meta name="browsermode" content="application" />
     <title>日程管理</title>
     <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./css/searchinfo.css">   
+    <link rel="stylesheet" href="./css/searchinfo.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_564276_yk1aeluf8qjpds4i.css">
 </head>
+
 <body>
     <div class="top">
         <div class="back">
-            <a href="#">返回</a>
+            <a href="javascript:void(0)">返回</a>
         </div>
         <div class="tit">
             <a>搜索我的日程</a>
         </div>
     </div>
-    <div class="mid">
-        <form name="search" class="search" method="post">　　
-            <input type="text" name="searchname" class="search_in" placeholder="搜索从这里开始..."/>
-            <input type="submit" name="send" class="search_butt" value=">" />
-        </form>
-    </div>
-    <div class="list">
-        <div class="cell">
-            <div class="tit">
-                <a>觉得就到家</a>
-            </div>
-            <div class="time">
-                <a>21:30-22:30</a>
-            </div>
-        </div>
-        <div class="cell">
-            <div class="tit">
-                <a>睡觉睡觉</a>
-            </div>
-            <div class="time">
-                <a>21:30-22:30</a>
-            </div>
-        </div>
-    </div>
+    <!-- 列表 -->
+    <article class="search">
+        <input class="word" type="text">
+        <span class="sebtn iconfont icon-sousuo"></span>
+    </article>
+
+    <!-- 列表 -->
+    <article class="mainList">
+        <ul id='list'>
+        </ul>
+    </article>
 
 
 
-    
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="./js/searchinfo.js"></script>
 </body>
+
 </html>

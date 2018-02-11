@@ -37,6 +37,10 @@ $('.views-btn .otherView').on('click', function () {
     window.location = './Schedule.html';
 });
 
+$('.views-btn .search').on('click', function () {
+    window.location = './searchinfo.html';
+});
+
 $('.addNew').on('click', function () {
     window.location = './creatWork.html';
 });

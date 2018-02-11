@@ -159,9 +159,11 @@
         line-height: 1.6rem;
         background-color: @mc;
         padding-top: 0.4rem;
+        position: relative;
         p {
-            width: 60%;
-            margin: 0 auto;
+            width: 50%;
+            //margin: 0 auto;
+            margin-left: 60px;
             font-size: 0;
             overflow: hidden;
             text-align: center;
@@ -180,6 +182,20 @@
                 &+span {
                     border-left: 1px solid #fff;
                 }
+            }
+        }
+        .search{
+            position: absolute;
+            right: 30px;
+            top: 0.3rem;
+            display: block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            &:before{
+                color: #fff;
+                font-size: 18px;
             }
         }
     }
