@@ -82,3 +82,9 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+.mainList.on {
+  height: 80vh;
+  width: 100vw;
+  background: url('../image/searchBg.png') center center no-repeat;
+  background-size: 80%;
+}

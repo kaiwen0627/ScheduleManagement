@@ -107,3 +107,9 @@
   margin-top: 20px;
   color: #999;
 }
+.mainList.on {
+  height: 80vh;
+  width: 100vw;
+  background: url('../image/view2.jpg') center center no-repeat;
+  background-size: 70%;
+}

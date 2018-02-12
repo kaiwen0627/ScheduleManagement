@@ -118,6 +118,12 @@ body {
   margin-top: 20px;
   color: #aaa;
 }
+.mainList.on {
+  height: 44vh;
+  width: 100vw;
+  background: url('../image/404Bg.jpg') center center no-repeat;
+  background-size: 70%;
+}
 .addNew {
   width: 40px;
   height: 40px;

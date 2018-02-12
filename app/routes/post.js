@@ -14,12 +14,18 @@ let Schedule = require('../database/models/schedule');
 // 	"address": "咸阳"
 // });
 
-// User.create({
-// 	"name": "user2",
-// 	"email": "222222@163.com",
-// 	"phone": "12345678901",
-// 	"password":'123456'
-// });
+User.create({
+	"name": "user1",
+	"email": "111111@163.com",
+	"phone": "12354154645",
+	"password":'123456'
+});
+User.create({
+	"name": "user2",
+	"email": "222222@163.com",
+	"phone": "12345678901",
+	"password":'123456'
+});
 
 
 // 校验密码并获取账户信息

@@ -37,9 +37,12 @@ $(function () {
                         .each(function () {
                             dom += ' <li id='+this._id+'><p class="L-name">' + this.title + '</p><p class = "doThingsTime" ><span class="fromTime">' + this.startTime + '</span><span> -- </span><span class = "toTime" > ' + this.endTime + '</span></p></li>';
                         });
-                } else {
-                    dom = '<h3>今天好像没有安排！</h3>'
+                        $('.mainList').removeClass('on');
+                } else {                   
+                    $('.mainList').addClass('on');
+                    alert('未找到日程信息！');
                 }
+                
                 $('#list')
                 .html('')
                 .append(dom);

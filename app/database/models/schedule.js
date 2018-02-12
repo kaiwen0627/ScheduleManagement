@@ -203,25 +203,19 @@ schedule.statics = {
 				let canReset = false;
 				for (let attr in update) {
 					console.log(typeof update[attr])
-					if (attr == 'alertTime') { 
-						break;						
-					}
+					// if (attr == 'alertTime') { 
+					// 	break;
+					// }
+					console.log(update[attr] != oldSchedule[attr])
 					if (update[attr] != oldSchedule[attr]) {
-						console.log(update[attr])
+						console.log(update[attr]);
 						canReset = true;
 						break;
 					} else {
-						console.log('tip')
+						console.log('tip');
 						canReset = false;						
-					}
-				
-					console.log(canReset)
-					
-				}
-				console.log('!!!!!!!!!')
-
-				console.log(canReset)
-				console.log(!canReset)
+					}		
+				}			
 
 				if (!canReset) {
 					callback({

@@ -6,8 +6,8 @@ $(function () {
     var ot1 = $('#overTime1');
     var ot2 = $('#overTime2');
     var $title = $('#title');
-    var startTime = '';
-    var overTime = '';
+    var startTime;
+    var overTime;
     var id = window
         .location
         .search
@@ -70,10 +70,10 @@ $(function () {
     });
 
     function submit(id) {
-        console.log(st1.val().replace(/T/g, ' '))
-        console.log(st2.val().replace(/T/g, ' '))
-        console.log(ot1.val().replace(/T/g, ' '))
-        console.log(ot2.val().replace(/T/g, ' '))
+        // console.log(st1.val().replace(/T/g, ' '))
+        // console.log(st2.val().replace(/T/g, ' '))
+        // console.log(ot1.val().replace(/T/g, ' '))
+        // console.log(ot2.val().replace(/T/g, ' '))
 
         //处理修改日程时间格式
         var st1_val = st1
@@ -105,12 +105,22 @@ $(function () {
                 startTime = moment(st1_val).format('YYYY-MM-DD HH:mm:ss');
                 overTime = moment(ot1_val).format('YYYY-MM-DD HH:mm:ss');
             } else {
-                startTime = st1_val;
-                overTime = ot1_val;
-                //console.log(startTime);
+                // startTime = st1_val;
+                // overTime = ot1_val;
+                // console.log(startTime);
+
+                startTime = moment(st1_val).format('YYYY-MM-DD HH:mm:ss');
+                overTime = moment(ot1_val).format('YYYY-MM-DD HH:mm:ss');
             }
 
         }
+
+        console.log(startTime);
+        var tx = moment(startTime)
+            .subtract(10, 'm')
+            .format('YYYY-MM-DD HH:mm:ss');
+        console.log(tx);
+
         var alertTime = [];
         var alertTimeIndex = [];
         $('input[name = "tixing"]:checked').each(function () {
@@ -211,7 +221,10 @@ $(function () {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({'_id': id, 'updata': sData})
+                body: JSON.stringify({
+                    '_id': id,
+                    'updata': sData
+                })
             }).then((res) => {
                 return res.json()
             }).then((res) => {
@@ -243,7 +256,10 @@ $(function () {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({attr: "_id", val: id})
+            body: JSON.stringify({
+                attr: "_id",
+                val: id
+            })
         }).then((res) => {
             return res.json()
         }).then((res) => {
@@ -254,14 +270,17 @@ $(function () {
             $('#address').val(res.address);
             $('#dec').val(res.desc);
             if (!res.isAllDay) {
-                //非全天
-                $('#isAllDay').addClass('on');
+                //非全天  (0) 
+               
+                console.log(res.startTime.split(' ')[0] + 'T' + res.startTime.split(' ')[1]);
                 $('#startTime1').val(res.startTime.split(' ')[0] + 'T' + res.startTime.split(' ')[1]);
                 $('#overTime1').val(res.endTime.split(' ')[0] + 'T' + res.endTime.split(' ')[1]);
 
             } else {
-                $('#startTime2').val(res.startTime.split(' ')[0] + 'T' + res.startTime.split(' ')[1]);
-                $('#overTime2').val(res.endTime.split(' ')[0] + 'T' + res.endTime.split(' ')[1]);
+                $('.isAllDay').click();
+                //全天               
+                $('#startTime2').val(res.startTime.split(' ')[0]);
+                $('#overTime2').val(res.endTime.split(' ')[0] );
 
             }
             if (res.alertTimeIndex.length) {
