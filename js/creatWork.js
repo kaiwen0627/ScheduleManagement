@@ -14,7 +14,7 @@ $(function () {
         .split('=')[1];
 
     $('.goBack').on('click', function () {
-        window.location.href = '/index.html';
+        window.location.href = './index.html';
     });
 
     (function () {
@@ -63,6 +63,38 @@ $(function () {
         });
     })();
 
+    $('#startTime1').on('change', function () {
+        let data = $(this).val();
+      
+        let time = data.split('T')[0] + '  ' + data.split('T')[1];
+        time = time.substring(0, 17);
+        $('.view1 .startTime i').html(time); 
+    })
+    $('#startTime2').on('change', function () {
+        let data = $(this).val();
+       
+        let time =  data.split('T')[0] + '  ' + data.split('T')[1];
+        time = time.substring(0, 10);
+        $('.view2 .startTime i').html(time); 
+    })
+    $('#overTime1').on('change', function () {
+        let data = $(this).val();
+      
+        let time =  data.split('T')[0] + '  ' + data.split('T')[1];
+        time = time.substring(0, 17);
+        $('.view1 .overTime i').html(time); 
+    })
+    $('#overTime2').on('change', function () {
+        let data = $(this).val();
+       
+        let time = data.split('T')[0] + '  ' + data.split('T')[1];
+        time = time.substring(0, 10);
+        $('.view2 .overTime i').html(time); 
+    })
+
+
+
+
     //提交日程
     $('.submitEvent p').on('click', function () {
         submit(id);
@@ -70,12 +102,9 @@ $(function () {
     });
 
     function submit(id) {
-        // console.log(st1.val().replace(/T/g, ' '))
-        // console.log(st2.val().replace(/T/g, ' '))
-        // console.log(ot1.val().replace(/T/g, ' '))
-        // console.log(ot2.val().replace(/T/g, ' '))
-
-        //处理修改日程时间格式
+        // console.log(st1.val().replace(/T/g, ' ')) console.log(st2.val().replace(/T/g,
+        // ' ')) console.log(ot1.val().replace(/T/g, ' '))
+        // console.log(ot2.val().replace(/T/g, ' ')) 处理修改日程时间格式
         var st1_val = st1
             .val()
             .replace(/T/g, ' ');
@@ -95,6 +124,14 @@ $(function () {
         var address = $('#address').val() || '';
         var dec = $('#dec').val() || '';
         var isAllDay = $('#isAllDay').hasClass('on');
+
+        
+
+
+
+
+
+
         if (isAllDay) {
             isAllDay = 1;
             startTime = moment(st2.val()).format('YYYY-MM-DD HH:mm:ss');
@@ -105,9 +142,7 @@ $(function () {
                 startTime = moment(st1_val).format('YYYY-MM-DD HH:mm:ss');
                 overTime = moment(ot1_val).format('YYYY-MM-DD HH:mm:ss');
             } else {
-                // startTime = st1_val;
-                // overTime = ot1_val;
-                // console.log(startTime);
+                // startTime = st1_val; overTime = ot1_val; console.log(startTime);
 
                 startTime = moment(st1_val).format('YYYY-MM-DD HH:mm:ss');
                 overTime = moment(ot1_val).format('YYYY-MM-DD HH:mm:ss');
@@ -208,7 +243,7 @@ $(function () {
                 console.log(res)
                 if (res.status == 'success') {
                     alert('添加日程成功！');
-                    window.location.href = '/index.html';
+                    window.location.href = './index.html';
                 }
             })
         } else {
@@ -221,17 +256,14 @@ $(function () {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({
-                    '_id': id,
-                    'updata': sData
-                })
+                body: JSON.stringify({'_id': id, 'updata': sData})
             }).then((res) => {
                 return res.json()
             }).then((res) => {
                 console.log(res)
                 if (res.status == 'success') {
                     alert('修改日程成功！');
-                    window.location.href = '/index.html';
+                    window.location.href = './index.html';
                 } else {
                     alert(res.mes);
                 }
@@ -256,10 +288,7 @@ $(function () {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                attr: "_id",
-                val: id
-            })
+            body: JSON.stringify({attr: "_id", val: id})
         }).then((res) => {
             return res.json()
         }).then((res) => {
@@ -270,21 +299,38 @@ $(function () {
             $('#address').val(res.address);
             $('#dec').val(res.desc);
             if (!res.isAllDay) {
-                //非全天  (0) 
-               
+                //非全天  (0)
+
                 console.log(res.startTime.split(' ')[0] + 'T' + res.startTime.split(' ')[1]);
                 $('#startTime1').val(res.startTime.split(' ')[0] + 'T' + res.startTime.split(' ')[1]);
                 $('#overTime1').val(res.endTime.split(' ')[0] + 'T' + res.endTime.split(' ')[1]);
 
+                var t1 = res.startTime.split(' ')[0] + '  ' + res.startTime.split(' ')[1];
+                var t2 = res.endTime.split(' ')[0] + '  ' + res.endTime.split(' ')[1];
+                //**** */
+                $('.view1 .startTime i').remove();
+                $('.view1 .overTime i').remove();
+                $('.view1 .startTime').append('<i>' + t1.substring(0,17)+ '</i>');             
+                $('.view1 .overTime').append('<i>' +t2.substring(0,17) + '</i>');                
+
             } else {
                 $('.isAllDay').click();
-                //全天               
+                //全天
                 $('#startTime2').val(res.startTime.split(' ')[0]);
-                $('#overTime2').val(res.endTime.split(' ')[0] );
+                $('#overTime2').val(res.endTime.split(' ')[0]);
 
+
+                // ***   
+                $('.view2 .startTime i').remove();
+                $('.view2 .overTime i').remove();
+                $('.view2 .startTime').append('<i>' +res.startTime.split(' ')[0] + '</i>');              
+                $('.view2 .overTime').append('<i>' + res.endTime.split(' ')[0]+ '</i>');
             }
+            $('#isAlert').eq(0).addClass('on');
             if (res.alertTimeIndex.length) {
-                $('#isAlert').addClass('on');
+                $('input[name = "tixing"]')
+                .eq(0)
+                .prop('checked', true);
                 $('.isAlert-con').show();
                 $('.isAlert').click();
                 $(res.alertTimeIndex).each(function (i, v) {
@@ -295,6 +341,72 @@ $(function () {
             }
 
         })
+    })();
+
+    //处理input时间选择
+    (function () {
+        if (!id) {
+            //新增日程
+            var data = moment().format('YYYY-MM-DD HH:mm:ss');
+            var dataed = moment()
+                .add(60, 'm')
+                .format('YYYY-MM-DD HH:mm:ss');
+            var time = data.split(' ')[0] + 'T' + data.split(' ')[1];
+            var timeed = dataed.split(' ')[0] + 'T' + dataed.split(' ')[1];
+            $('#startTime1').val(time);
+            $('#startTime2').val(time);
+            $('#overTime1').val(timeed);  
+            $('#overTime2').val(timeed);  
+            $('.view1 .startTime i').remove();
+            $('.view1 .overTime i').remove();
+            $('.view2 .startTime i').remove();
+            $('.view2 .overTime i').remove();
+
+            $('.view1 .startTime').append('<i>' + time.replace(/T/,'  ').substring(0,17) + '</i>');
+            $('.view2 .startTime').append('<i>' + time.replace(/T/,'  ').substring(0,10) + '</i>');
+            $('.view1 .overTime').append('<i>' + timeed.replace(/T/,'  ').substring(0,17) + '</i>');
+            $('.view2 .overTime').append('<i>' + timeed.replace(/T/, '  ').substring(0, 10) + '</i>');  
+
+        } else {
+            //修改日程
+            var f = $('.isAllDay').hasClass('on');
+            if (!f) {
+                //全天事件
+                var data = moment().format('YYYY-MM-DD HH:mm:ss');
+                var dataed = moment()
+                    .add(60, 'm')
+                    .format('YYYY-MM-DD HH:mm:ss');
+                var time = data.split(' ')[0] + 'T' + data.split(' ')[1];
+                var timeed = dataed.split(' ')[0] + 'T' + dataed.split(' ')[1];
+                $('#startTime1').val(time);               
+                $('#overTime1').val(timeed);  
+                $('.view1 .startTime i').remove();
+                $('.view1 .overTime i').remove();
+
+                $('.view1 .startTime').append('<i>' + time.replace(/T/,'  ').substring(0,17) + '</i>');
+                
+                $('.view1 .overTime').append('<i>' + timeed.replace(/T/,'  ').substring(0,17) + '</i>');
+                
+            } else {
+                //非全天时间
+                var data = moment().format('YYYY-MM-DD HH:mm:ss');
+                var dataed = moment()
+                    .add(60, 'm')
+                    .format('YYYY-MM-DD HH:mm:ss');
+                var time = data.split(' ')[0] + 'T' + data.split(' ')[1];
+                var timeed = dataed.split(' ')[0] + 'T' + dataed.split(' ')[1];               
+                $('#startTime2').val(time);                 
+                $('#overTime2').val(timeed); 
+                $('.view2 .startTime i').remove();
+                $('.view2 .overTime i').remove();
+                $('.view2 .startTime').append('<i>' + time.replace(/T/,'  ').substring(0,10) + '</i>');              
+                $('.view2 .overTime').append('<i>' + timeed.replace(/T/, '  ').substring(0, 10) + '</i>');  
+            }
+        }
+
+        // $(".time").on("click", "i", function () { 
+        //     $(this).prev().trigger("blur");
+        // });
     })();
 
 })

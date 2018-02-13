@@ -3,10 +3,10 @@ $(function () {
     var userphone = getCookie('userphone');
 
     $('.back').on('click', function () {       
-        window.location.href = '/index.html';
+        window.location.href = './index.html';
     });
     $('.mainList').on('click', 'li', function () {
-        window.location = './listinfo.html?id='+this.id;
+        window.location.href = './listinfo.html?id='+this.id;
     }); 
    $('.sebtn').on('click', function () {
        var word = $('.word').val();

@@ -23,7 +23,7 @@ $(function () {
                     setCookie('username', res.userMes.name, cookie_time);
                     setCookie('userphone', res.userMes.phone, cookie_time);                   
                 }
-                window.location.href = '/index.html';
+                window.location.href = './index.html';
 
             } else {
                 alert(res.mes);

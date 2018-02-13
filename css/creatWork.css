@@ -78,17 +78,55 @@
 }
 .pannal-01 .row span {
   font-size: 14px;
-  display: inline-block;
   height: 100%;
   color: #6E6E6E;
+  text-align: right;
+  padding-right: 30px;
+}
+.pannal-01 .row span i {
+  position: relative;
+}
+.pannal-01 .row span i:after {
+  position: absolute;
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../image/down.png) center center no-repeat;
+  background-size: 30px;
+  right: -30px;
+  top: -1px;
 }
 .pannal-01 .row span input {
   height: 80%;
   border: none;
   background-color: #fff;
+  -webkit-appearance: none;
+  height: 100%;
+  width: 100%;
+  min-width: 100px;
+  background: transparent;
+}
+.pannal-01 .row span.startTime,
+.pannal-01 .row span.overTime {
+  position: absolute;
+  right: 0;
+  height: 0;
+  display: inline-block;
+  height: 36px;
+  width: 150px;
+  padding-left: 0;
 }
 .pannal-01 .row .time {
   padding-left: 30px;
+}
+.pannal-01 .row .time input {
+  position: absolute;
+  color: transparent;
+  opacity: 0;
+  right: 0;
+  height: 40px;
+  z-index: 9;
 }
 .pannal-01 .row .isAllDay,
 .pannal-01 .row .isAlert,

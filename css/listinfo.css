@@ -1,3 +1,6 @@
+body {
+  overflow-x: hidden;
+}
 .top {
   background-color: #3d8cf8;
   height: 2rem;
@@ -17,21 +20,22 @@
 }
 .mid .schedule {
   position: relative;
-  padding: 0 0.5rem 0.5rem;
+  padding: 10px;
   background-color: #3d8cf8;
-  height: 6rem;
   color: #fff;
 }
 .mid .schedule .scheduleName {
-  position: absolute;
-  bottom: 40px;
+  width: 100%;
+  padding: 0 20px 20px;
 }
 .mid .schedule .scheduleName span {
-  font-size: 0.8rem;
+  text-align: center;
+  font-size: 1rem;
+  display: block;
 }
 .mid .schedule .scheduleTime {
-  position: absolute;
-  bottom: 10px;
+  width: 100%;
+  text-align: center;
 }
 .mid .remind {
   padding-top: 0.5rem;

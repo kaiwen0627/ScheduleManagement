@@ -1,4 +1,8 @@
 @mc: #3d8cf8;
+body{
+    overflow-x: hidden;
+  
+}
 .top {
     background-color: @mc;
     height: 2rem;
@@ -21,21 +25,25 @@
 .mid {   
     .schedule {
         position: relative;
-        padding: 0 0.5rem 0.5rem;
-        background-color: @mc;
-        height: 6rem;       
+        padding: 10px;
+        background-color: @mc;             
         color: #fff;
-        .scheduleName {
-          
-            position: absolute; 
-            bottom: 40px;             
+        .scheduleName {          
+             
+            width: 100%; 
+            padding:0 20px 20px;         
             span {
-                font-size: 0.8rem;
+                text-align: center;
+                font-size: 1rem;
+                display: block;
+
             }
         }
         .scheduleTime {
-            position: absolute; 
-            bottom: 10px;          
+         
+            width: 100%;
+            text-align: center;
+                
         }
     }
     .remind {

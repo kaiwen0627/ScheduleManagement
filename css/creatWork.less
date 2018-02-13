@@ -1,6 +1,5 @@
 // all
 @mc: #3d8cf8;
-
 .topMenu {
     height: 2rem;
     background-color: @mc;
@@ -14,7 +13,7 @@
         height: 100%;
         width: 60px;
         line-height: 2rem;
-        span {           
+        span {
             display: block;
             height: 40px;
             width: 22px;
@@ -65,7 +64,7 @@
         margin: 0 20px;
         border-bottom: 1px solid #ccc;
         font-size: 14px;
-        input{
+        input {
             font-size: 14px;
         }
     }
@@ -77,26 +76,65 @@
         margin-top: 1px;
         width: 100%;
         height: 1.9rem;
-        line-height:  1.9rem;
+        line-height: 1.9rem;
         border: none;
     }
     .row {
         font-size: 0;
         position: relative;
         span {
-            font-size: 14px;
-            display: inline-block;
+            font-size: 14px; // display: inline-block;
             height: 100%;
             color: #6E6E6E;
+            text-align: right;
+            padding-right: 30px;
+            i {
+                position: relative;
+            }
+            i:after {
+                position: absolute;
+                content: '';
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background: url(../image/down.png) center center no-repeat;
+                background-size: 30px;
+                right: -30px;              
+                top: -1px;
+            }
             input {
                 height: 80%;
                 border: none;
                 background-color: #fff;
-                
+                -webkit-appearance: none;
+                height: 100%;
+                width: 100%;
+                min-width: 100px;
+                background: transparent;
+            }
+            &.startTime,
+            &.overTime {
+                position: absolute;
+                right: 0;
+                height: 0;
+                display: inline-block;
+                height: 36px;
+                width: 150px;
+                padding-left: 0;
             }
         }
         .time {
             padding-left: 30px;
+            input {
+                //display: none;
+                //text-indent: -1000px;
+                position: absolute; // font-size: 0;
+                color: transparent;
+                opacity: 0;
+                right: 0;
+                height: 40px;
+                z-index: 9;
+            }
         }
         .isAllDay,
         .isAlert,
@@ -125,12 +163,12 @@
                 border-radius: 50%;
                 background-color: #fff;
             }
-            &.on {               
+            &.on {
                 right: 1px;
                 left: auto;
                 border-color: transparent;
                 background-color: #44DB54;
-                &:after{
+                &:after {
                     left: auto;
                     right: 1px;
                 }
@@ -152,7 +190,7 @@
             line-height: 30px;
             display: inline-block;
             input {
-                margin-right: 10px;                
+                margin-right: 10px;
             }
         }
     }
@@ -173,7 +211,6 @@
     }
 }
 
-
-.hide{
+.hide {
     display: none;
 }

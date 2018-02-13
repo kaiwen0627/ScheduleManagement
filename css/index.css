@@ -49,6 +49,19 @@ body {
 }
 .current-month {
   color: #333333;
+  position: relative;
+}
+.current-month.on:after {
+  content: '·';
+  background-color: #3d8cf8;
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
 }
 .today-style {
   border-radius: 50%;

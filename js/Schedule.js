@@ -4,7 +4,7 @@ $(function () {
 
     //点击返回
     $('.goBack').on('click', function () {
-        window.location.href = '/index.html';
+        window.location.href = './index.html';
     });
     //选择日期
     $('.navInfo').on('click', function () {
@@ -49,7 +49,7 @@ $(function () {
             if (res.length) {
                 $(res)
                     .each(function () {
-                        dom += ' <li id=' + this._id + '><p class="L-name">' + this.title + '</p><p class = "doThingsTime" ><span class="fromTime">' + this.startTime + '</span><span> -- </span><span class = "toTime" > ' + this.endTime + '</span></p></li>';
+                        dom += ' <li id=' + this._id + '><p class="L-name">' + this.title + '</p><p class = "doThingsTime" ><span class="fromTime">' + this.startTime.substring(0, 16) + '</span><span> -- </span><span class = "toTime" > ' + this.endTime.substring(0, 16) + '</span></p></li>';
                     });
                 $('.mainList').removeClass('on');
             } else {
@@ -62,6 +62,6 @@ $(function () {
     }
     $('.mainList')
         .on('click', 'li', function () {
-            window.location = './listinfo.html?id=' + this.id;
+            window.location.href = './listinfo.html?id=' + this.id;
         });
 })
