@@ -1,4 +1,10 @@
 (function () {
+
+    //设置cookie
+    setCookie('username', 'user1', 7);
+    setCookie('userphone', '12354154645', 7);
+    //*************** */
+
     var nowTime = moment();
     console.log(nowTime);
 
@@ -12,39 +18,48 @@
             clickCb: function (y, m, d) {
                 riChengZhanShi();
                 console.log(y, m, d);
-                m > 9
-                    ? m = m
-                    : m = '0' + m;
-                d > 9
-                    ? d = d
-                    : d = '0' + d;
-                scheduleList(y + '-' + m + '-' + d);
+                dataChuLi(y, m, d);
             },
             nextMonthCb: function (y, m, d) {
                 console.log(y, m, d);
                 riChengZhanShi();
+                dataChuLi(y, m, d);
             },
             nextYeayCb: function (y, m, d) {
                 console.log(y, m, d);
                 riChengZhanShi();
+                dataChuLi(y, m, d);
             },
             prevMonthCb: function (y, m, d) {
                 console.log(y, m, d);
                 riChengZhanShi();
+                dataChuLi(y, m, d)
             },
             prevYearCb: function (y, m, d) {
                 console.log(y, m, d);
                 riChengZhanShi();
+                dataChuLi(y, m, d);
             }
         });
         riChengZhanShi();
     };
     data();
 
+    function dataChuLi(y, m, d) {
+        m > 9
+            ? m = m
+            : m = '0' + m;
+        d > 9
+            ? d = d
+            : d = '0' + d;
+        scheduleList(y + '-' + m + '-' + d);
+    }
+
     //切换视图
-    $('.views-btn .otherView').on('click', function () {
-        window.location.href = './Schedule.html';
-    });
+    $('.views-btn .otherView')
+        .on('click', function () {
+            window.location.href = './Schedule.html';
+        });
 
     $('.views-btn .search').on('click', function () {
         window.location.href = './searchinfo.html';
@@ -79,7 +94,11 @@
                 if (res.length) {
                     $(res)
                         .each(function () {
-                            dom += ' <li id=' + this._id + '><p class="L-name">' + this.title + '</p><p class = "doThingsTime" ><span class="fromTime">' + this.startTime.substring(0, 16) + '</span><span> -- </span><span class = "toTime" > ' + this.endTime.substring(0, 16) + '</span></p></li>';
+                            dom += ' <li id=' + this._id + '><p class="L-name">' + this.title + '</p><p class = "doThingsTime" ><span class="fromTime">' + this
+                                .startTime
+                                .substring(0, 16) + '</span><span> -- </span><span class = "toTime" > ' + this
+                                .endTime
+                                .substring(0, 16) + '</span></p></li>';
                         });
                     $('.mainList').removeClass('on');
                 } else {
@@ -98,10 +117,8 @@
         scheduleList(time);
     }
 
+    function riChengZhanShi() {
 
-    
-    function riChengZhanShi() {   
-        
         dataD('2');
 
     }
@@ -124,9 +141,11 @@
             if (res.length) {
                 $(res)
                     .each(function () {
-                        var t = this.startTime.split(' ')[0];
+                        var t = this
+                            .startTime
+                            .split(' ')[0];
                         $('#schedule-box .current-month').each(function () {
-                            console.log($(this).find('span').attr('title'));
+                            // console.log($(this).find('span').attr('title'));
                             if (t == $(this).find('span').attr('title')) {
                                 $(this).addClass('on');
                             }
@@ -136,7 +155,5 @@
 
         })
     }
-
-
 
 })()

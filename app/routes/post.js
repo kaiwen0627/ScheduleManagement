@@ -90,7 +90,7 @@ router.post('/updateSchedule', function (req, res) {
 router.post('/findScheduleListByAttr', function (req, res) {
 	console.log(req.body);
 
-	Schedule.findScheduleListByAttr(req.body.phone,req.body.timeDian,(status) => {
+	Schedule.findScheduleListByAttr(req.body.phone, req.body.timeDian, (status) => {
 		res.send(200, status);
 	})
 });

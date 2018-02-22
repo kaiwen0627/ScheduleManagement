@@ -52,7 +52,7 @@ body {
   position: relative;
 }
 .current-month.on:after {
-  content: '·';
+  content: '';
   background-color: #3d8cf8;
   display: block;
   width: 6px;

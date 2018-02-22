@@ -70,22 +70,21 @@ schedule.statics = {
 	findScheduleListByAttr: function (phone,time, callback) {
 		var reg = null;
 		var y=now.format("YYYY-MM-DD HH:mm").split('-')[0];
-		var m=now.format("YYYY-MM-DD HH:mm").split('-')[1];
-		var d = now.format("YYYY-MM-DD HH:mm").split('-')[2].split(' ')[0];
+		var m=now.format("YYYY-MM-DD HH:mm").substring(0, 7);
+		var d = now.format("YYYY-MM-DD HH:mm").split(' ')[0];
 		switch (time) {
 			//当日
 			case '1':
-				reg = new RegExp(d, 'i');
+				reg = new RegExp(d);
 				break;
 			//当月	
 			case '2':
-				reg = new RegExp(m, 'i');
+				reg = new RegExp(m);
 				break;
 			//当年	
 			default:
-				reg = new RegExp(y, 'i');
+				reg = new RegExp(y);
 			}
-			console.log(reg);
 		this.find({
 			'phone': phone,
 			'endTime':reg
@@ -95,6 +94,7 @@ schedule.statics = {
 			if (err) {
 				console.log(err);
 			} else {
+				console.log(reg)
 				callback(scheduleList);
 
 			}
